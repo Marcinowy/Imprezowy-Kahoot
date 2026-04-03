@@ -1,0 +1,104 @@
+@-webkit-keyframes animatedBackground {
+    from {
+      translate: 0;
+    }
+    /*use negative width if you want it to flow right to left else and positive for left to right*/
+    to {
+      translate: calc(var(--bg-size) * -1);
+    }
+  }
+  
+  @keyframes animatedBackground {
+    from {
+      translate: 0;
+    }
+    /*use negative width if you want it to flow right to left else and positive for left to right*/
+    to {
+      translate: calc(var(--bg-size) * -1);
+    }
+  }
+  
+  @-webkit-keyframes textShine {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+  
+  @keyframes textShine {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+  
+  .lds-ring {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  
+  .lds-ring div {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 50%;
+    aspect-ratio: 1/1;
+    margin: 8px;
+    border: 12px solid #fff;
+    border-radius: 50%;
+    -webkit-animation: lds-ring 1.4s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+            animation: lds-ring 1.4s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #fff transparent transparent transparent;
+  }
+  
+  .lds-ring div:nth-child(1) {
+    -webkit-animation-delay: -0.525s;
+            animation-delay: -0.525s;
+  }
+  
+  .lds-ring div:nth-child(2) {
+    -webkit-animation-delay: -0.35s;
+            animation-delay: -0.35s;
+  }
+  
+  .lds-ring div:nth-child(3) {
+    -webkit-animation-delay: -0.175s;
+            animation-delay: -0.175s;
+  }
+  
+  @-webkit-keyframes lds-ring {
+    0% {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes lds-ring {
+    0% {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }

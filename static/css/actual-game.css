@@ -1,0 +1,95 @@
+#main .actual-game {
+    padding: 15px;
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    height: 100%;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100vw;
+            flex: 0 0 100vw;
+  }
+  
+  #main .actual-game #question-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    height: 100%;
+  }
+  
+  #main .actual-game #question-container.deactivate {
+    visibility: hidden;
+  }
+  
+  #main .actual-game #question {
+    padding: .5em 0;
+    font-size: 2em;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #f4f3f1;
+  }
+  
+  #main .actual-game #options {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-rows: 1fr 1fr;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template: 1fr 1fr / 1fr 1fr;
+    gap: 1em;
+    min-height: 400px;
+  }
+  
+  #main .actual-game #options.cm-loading {
+    -ms-grid-rows: 1fr;
+    -ms-grid-columns: 1fr;
+        grid-template: 1fr / 1fr;
+  }
+  
+  #main .actual-game #options > div:not(.lds-ring) {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border-radius: 15px;
+    -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.64);
+            box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.64);
+    font-size: 1.25em;
+    font-weight: bold;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+  }
+  
+  #main .actual-game #options > div:not(.lds-ring):nth-child(1) {
+    background-color: #B55F49;
+  }
+  
+  #main .actual-game #options > div:not(.lds-ring):nth-child(2) {
+    background-color: #6FA8C9;
+  }
+  
+  #main .actual-game #options > div:not(.lds-ring):nth-child(3) {
+    background-color: #D7BF4B;
+  }
+  
+  #main .actual-game #options > div:not(.lds-ring):nth-child(4) {
+    background-color: #4e6e26;
+  }

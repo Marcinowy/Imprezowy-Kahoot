@@ -200,3 +200,4 @@ For issues with:
 - **React Components**: Check src/ files and console for errors
 - **Socket.IO Communication**: Enable Socket.IO debug with `localStorage.debug = '*'`
 - **Hardware Issues**: Check GPIO pin assignments and system permissions
+# Imprezowy-Kahoot

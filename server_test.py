@@ -1,5 +1,5 @@
 # server.py
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, send_from_directory
 from flask_socketio import SocketIO, emit
 import random
 from all_questions import questions
@@ -43,8 +43,8 @@ repetitions = 36
 pour_dose = .25
 
 
-app = Flask(__name__)
-socketio = SocketIO(app, kwargs=dict(cors_allowed_origins='*'))
+app = Flask(__name__, static_folder='dist', static_url_path='')
+socketio = SocketIO(app, cors_allowed_origins='*')
 
 """Store the list of players """
 players = []
@@ -67,12 +67,6 @@ current_question_index = 0
 
 """function to set servo at a given angle"""
 def servoGoToAngle(angle):
-    """
-    DUTY CYCLE:
-    f 50Hz  ->  T 20ms
-    0st         0.5ms - 2.5%
-    180st       2.5ms - 12.5%
-    """
     d0, d180 = 500, 2500
     pulse = int(d0 + (d180 - d0) * (angle / 180))
 
@@ -110,26 +104,21 @@ def pumpDrink(playerID):
 
 """function for handling penalty for bad answers"""
 def pourDrinks(stupidPlayersIds):
-    """
-    slot angles: 22.5st   67.5st   112.5st   157.5st
-    shortly: 22.5st + 45st*indeks
-    indeks = id_of_shot_glass - 1
-    """
+    
     for playerID in stupidPlayersIds:
         print("Gracz nr", playerID)  # [debug]
+
+        # if GPIO.input(sensorPins[playerID - 1]) == GPIO.HIGH:
+        #     print("Gracz", playerID, "nie dał kieliszka")  # [debug]
+        #     emit('didnt_drink', {'id': playerID}, broadcast=True)
+        #
+        #     """Loop holding the pump untill the shot_glass is found in slot"""
+        #     while GPIO.input(sensorPins[playerID - 1]) == GPIO.HIGH:
+        #         time.sleep(2)
 
         slotAngle = 22.5 + 45 * (playerID - 1)
         servoGoToAngle(slotAngle)
         time.sleep(1)
-
-        # if GPIO.input(sensorPins[playerID - 1]) == GPIO.HIGH:
-        if playerID == 1 or playerID == 2:  # [debug]
-            print("Gracz", playerID, "nie dał kieliszka")  # [debug]
-            emit('didnt_drink', {'id': playerID}, broadcast=True)
-
-            """Loop holding the pump untill the shot_glass is found in slot"""
-            # while GPIO.input(sensorPins[playerID - 1]) == GPIO.HIGH:
-            #     time.sleep(2)
 
         pumpDrink(playerID)
         time.sleep(2)
@@ -140,7 +129,13 @@ def pourDrinks(stupidPlayersIds):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return send_from_directory('dist', 'index.html')
+
+@app.route('/<path:path>')
+def serve_static(path):
+    if path != "" and path.endswith(('.js', '.css', '.png', '.jpg', '.jpeg', '.svg', '.gif', '.ico')):
+        return send_from_directory('dist', path)
+    return send_from_directory('dist', 'index.html')
 
 
 @socketio.on('connect')
@@ -180,38 +175,27 @@ def handle_join(data):
 
 """ clears data from previous game and starts a new one"""
 @socketio.on('start_game')
-def handle_start_game(data={}):
+def handle_start_game(data=None):
     global game_started, current_question_index, question_limit
-    
-    # 1. POBIERANIE LICZBY RUND Z DANYCH
-    # Używamy .get('num_rounds', 5), aby bezpiecznie pobrać wartość, 
-    # a 5 będzie wartością domyślną, jeśli jej nie dostaniemy.
-    num_rounds_from_client = data.get('num_rounds', 5) 
-    
-    # Upewniamy się, że to liczba całkowita (choć w JS wysyłamy int)
-    try:
-        new_limit = int(num_rounds_from_client)
-        # Opcjonalna walidacja zakresu (np. 1-15)
-        if 1 <= new_limit <= 15:
-            question_limit = new_limit
-        else:
-            print(f"Otrzymano nieprawidłową liczbę rund ({new_limit}), użyto domyślnej: 5.")
-            question_limit = 5
-    except ValueError:
-        print(f"Otrzymana wartość ({num_rounds_from_client}) nie jest liczbą, użyto domyślnej: 5.")
-        question_limit = 5
-
-    print(f"Gra będzie miała {question_limit} rund.") # DEBUG
-
+    print(f"[DEBUG] start_game called with data={data}")  # DEBUG
     if not game_started:
+        # Get num_rounds from data if provided, otherwise use default
+        if data and 'num_rounds' in data:
+            question_limit = int(data['num_rounds'])
+        print(f"[DEBUG] question_limit set to {question_limit}")  # DEBUG
         current_question_index = 0
         for player in players:
             player['score'] = 0
         emit('update_players', {'players': players}, broadcast=True)
         emit('game_started', broadcast=True)
         game_started = True
+        print(f"[DEBUG] Calling shuffle_questions, total questions: {len(questions)}")  # DEBUG
         shuffle_questions()
+        print(f"[DEBUG] About to emit_question")  # DEBUG
         emit_question()
+        print(f"[DEBUG] Question emitted")  # DEBUG
+    else:
+        print("[DEBUG] Game already started, ignoring start_game call")  # DEBUG
 
 
 """ makes sure that disconnecting doesn't break a game"""
@@ -284,15 +268,18 @@ def handle_answer(data):
 
 """sends question to all players"""
 def emit_question():
-    question_data = questions[current_question_index]
-    emit('new_question', {'question': question_data['question'], 'options': question_data['options'],
-                          'number': (current_question_index + 1)}, broadcast=True)
+    print(f"[DEBUG] emit_question called, index={current_question_index}, total questions={len(questions)}")  # DEBUG
+    if current_question_index < len(questions):
+        question_data = questions[current_question_index]
+        print(f"[DEBUG] Sending question: {question_data['question']}")  # DEBUG
+        emit('new_question', {'question': question_data['question'], 'options': question_data['options'],
+                              'number': (current_question_index + 1)}, broadcast=True)
+    else:
+        print(f"[ERROR] Question index {current_question_index} out of range!")  # DEBUG
 
 
 def shuffle_questions():
     random.shuffle(questions)
-    for question in questions:
-        random.shuffle(question["options"])
 
 
 """returns lowest available id"""
@@ -335,5 +322,5 @@ def handler(sig, frame):
 signal.signal(signal.SIGINT, handler)
 
 if __name__ == '__main__':
-#    servoGoToAngle(0)
+   # servoGoToAngle(0)
    socketio.run(app, port=5500, host="0.0.0.0", debug=True)

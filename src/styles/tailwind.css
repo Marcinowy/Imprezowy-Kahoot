@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Corben:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+
+@theme {
+  --font-corben: 'Corben', serif;
+  --font-montserrat: 'Montserrat', sans-serif;
+}
+
+:root {
+  --color-primary: #315B10; /*lime-900*/
+  --color-primary-light: #4A8C1A; /*lime-700*/
+  --color-primary-bg: #F9F8F4; /*stone-100*/
+  --color-primary-pale: #F2F8E0; /*lime-50*/
+  --color-text-bold: #0F390D; /*green-950*/
+  --color-text-normal: #0F390D; /*green-950*/
+  --color-selected-bg: #F2F8E0; /*lime-50*/
+  --color-selected-border: #0F390D; /*green-950*/
+  --color-white: #fff; /* white */
+  --color-border: #ddd; /*zinc-300*/
+  --color-error: #e74c3c; /*red-500*/
+  --color-shadow: rgba(49, 91, 16, 0.2);
+  --color-shadow-button: rgba(49, 91, 16, 0.3);
+  --quiz-max-width: 600px;
+}
+
+html, body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  width: 100%;
+  background: white;
+  min-width: 100vw;
+  font-family: var(--font-montserrat);
+}
+
+* {
+  box-sizing: border-box;
+}

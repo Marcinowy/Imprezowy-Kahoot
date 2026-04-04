@@ -1,5 +1,5 @@
 # server.py
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, send_from_directory
 from flask_socketio import SocketIO, emit
 import random
 from all_questions import questions
@@ -43,8 +43,8 @@ repetitions = 36
 pour_dose = .25
 
 
-app = Flask(__name__)
-socketio = SocketIO(app, kwargs=dict(cors_allowed_origins='*'))
+app = Flask(__name__, static_folder='dist', static_url_path='')
+socketio = SocketIO(app, cors_allowed_origins='*')
 
 """Store the list of players """
 players = []
@@ -129,7 +129,13 @@ def pourDrinks(stupidPlayersIds):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return send_from_directory('dist', 'index.html')
+
+@app.route('/<path:path>')
+def serve_static(path):
+    if path != "" and path.endswith(('.js', '.css', '.png', '.jpg', '.jpeg', '.svg', '.gif', '.ico')):
+        return send_from_directory('dist', path)
+    return send_from_directory('dist', 'index.html')
 
 
 @socketio.on('connect')
@@ -169,9 +175,12 @@ def handle_join(data):
 
 """ clears data from previous game and starts a new one"""
 @socketio.on('start_game')
-def handle_start_game():
-    global game_started, current_question_index
+def handle_start_game(data=None):
+    global game_started, current_question_index, question_limit
     if not game_started:
+        # Get num_rounds from data if provided, otherwise use default
+        if data and 'num_rounds' in data:
+            question_limit = int(data['num_rounds'])
         current_question_index = 0
         for player in players:
             player['score'] = 0

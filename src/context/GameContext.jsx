@@ -1,0 +1,158 @@
+import { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import { io } from 'socket.io-client';
+
+const GameContext = createContext();
+
+export const GameProvider = ({ children }) => {
+  const [socket, setSocket] = useState(null);
+  const [playerId, setPlayerId] = useState(null);
+  const [players, setPlayers] = useState([]);
+  const [currentQuestion, setCurrentQuestion] = useState(null);
+  const [gameStarted, setGameStarted] = useState(false);
+  const [joined, setJoined] = useState(false);
+  const [currentScreen, setCurrentScreen] = useState('join'); // join, lobby, game, scoreboard
+  const [answered, setAnswered] = useState(false);
+  const [showScoreboard, setShowScoreboard] = useState(false);
+  const [showShotglassAlert, setShowShotglassAlert] = useState(false);
+  const [shotglassAlertId, setShotglassAlertId] = useState(null);
+  const [questionNumber, setQuestionNumber] = useState(0);
+  const [gameOver, setGameOver] = useState(false);
+  const [numRounds, setNumRounds] = useState(5);
+
+  useEffect(() => {
+    const socketIo = io('http://' + window.location.hostname + ':5500', {
+      transports: ['websocket', 'polling']
+    });
+
+    socketIo.on('connect', () => {
+      console.log('[DEBUG] Connected to server');  // DEBUG
+    });
+
+    socketIo.on('message', (data) => {
+      console.log(data.data);
+    });
+
+    socketIo.on('get_id', (data) => {
+      console.log('[DEBUG] Received get_id:', data.playerId);  // DEBUG
+      setPlayerId(data.playerId);
+    });
+
+    socketIo.on('update_players', (data) => {
+      setPlayers(data.players);
+    });
+
+    socketIo.on('new_question', (data) => {
+      console.log('[DEBUG] Received new_question:', data);  // DEBUG
+      setCurrentQuestion({
+        question: data.question,
+        options: data.options,
+        number: data.number
+      });
+      setQuestionNumber(data.number);
+      setAnswered(false);
+      setShowShotglassAlert(false);
+      setShowScoreboard(false);
+    });
+
+    socketIo.on('game_started', () => {
+      console.log('[DEBUG] Received game_started, setting screen to game');  // DEBUG
+      setGameStarted(true);
+      setCurrentScreen('game');
+    });
+
+    socketIo.on('game_joined', () => {
+      console.log('[DEBUG] Received game_joined');  // DEBUG
+      setJoined(true);
+      setCurrentScreen('lobby');
+    });
+
+    socketIo.on('game_over', (data) => {
+      setAnswered(false);
+      if (joined) {
+        setCurrentScreen('scoreboard');
+        setShowShotglassAlert(false);
+        setGameOver(true);
+        setPlayers(data.players);
+      }
+    });
+
+    socketIo.on('lobby_full', (data) => {
+      alert(data.message);
+    });
+
+    socketIo.on('all_players_answered', () => {
+      setAnswered(false);
+      setShowScoreboard(true);
+      setTimeout(() => {
+        setShowScoreboard(false);
+      }, 3000);
+    });
+
+    socketIo.on('didnt_drink', (data) => {
+      if (joined) {
+        setShotglassAlertId(data.id);
+        setShowShotglassAlert(true);
+      }
+    });
+
+    setSocket(socketIo);
+
+    return () => socketIo.disconnect();
+  }, []);
+
+  const joinGame = useCallback((username) => {
+    if (socket && username.trim() !== '') {
+      socket.emit('join', { username });
+    }
+  }, [socket]);
+
+  const startGame = useCallback(() => {
+    if (socket) {
+      socket.emit('start_game', { num_rounds: numRounds });
+    }
+  }, [socket, numRounds]);
+
+  const submitAnswer = useCallback((answer) => {
+    console.log('[DEBUG] submitAnswer called, playerId=', playerId, 'answered=', answered);  // DEBUG
+    if (socket && playerId && !answered) {
+      console.log('[DEBUG] Emitting answer:', answer);  // DEBUG
+      setAnswered(true);
+      socket.emit('answer', { player_id: playerId, answer });
+    }
+  }, [socket, playerId, answered]);
+
+  const value = {
+    playerId,
+    players,
+    currentQuestion,
+    gameStarted,
+    joined,
+    currentScreen,
+    setCurrentScreen,
+    answered,
+    showScoreboard,
+    showShotglassAlert,
+    shotglassAlertId,
+    questionNumber,
+    gameOver,
+    numRounds,
+    setNumRounds,
+    joinGame,
+    startGame,
+    submitAnswer
+  };
+
+  return (
+    <GameContext.Provider value={value}>
+      {children}
+    </GameContext.Provider>
+  );
+};
+
+export const useGame = () => {
+  const context = useContext(GameContext);
+  if (!context) {
+    throw new Error('useGame must be used within GameProvider');
+  }
+  return context;
+};

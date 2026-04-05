@@ -1,7 +1,7 @@
 import { useGame } from '../context/GameContext';
 
 export const EndGameScreen = () => {
-  const { players, currentScreen, setCurrentScreen } = useGame();
+  const { players, correctAnswer, setCurrentScreen } = useGame();
 
   const sortedPlayers = [...players].sort((a, b) => b.score - a.score);
 
@@ -22,7 +22,11 @@ export const EndGameScreen = () => {
           <p className="text-base text-green-950">
             Gratulujemy wszystkim uczestnikom!
           </p>
+          <p className="text-base text-green-950 font-montserrat">
+            Prawidłowa odpowiedź: <b>{correctAnswer}</b>
+          </p>
         </div>
+
 
           {/* Podium */}
         <div className="bg-white/85 backdrop-blur-sm rounded-3xl shadow-xl p-6 space-y-2">

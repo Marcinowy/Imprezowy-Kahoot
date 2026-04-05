@@ -262,7 +262,7 @@ def handle_answer(data):
                 emit('all_players_answered', {'correctAnswer': correct_answer}, broadcast=True)
             else:
                 print("all players answered, game over coming up")  # [debug]
-                emit('game_over', {'players': players}, broadcast=True)
+                emit('game_over', {'players': players, 'correctAnswer': correct_answer}, broadcast=True)
             pourDrinks(players_answered_wrong)
 
 """ handles request for next question"""

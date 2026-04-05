@@ -73,6 +73,7 @@ export const GameProvider = ({ children }) => {
       setAnswered(false);
       setGameOver(true);
       setPlayers(data.players);
+      setCorrectAnswer(data.correctAnswer);
       setCurrentScreen('endgame');
     });
 

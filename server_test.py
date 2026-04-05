@@ -258,12 +258,14 @@ def handle_answer(data):
         """ Check if all players have answered"""
         if len(players_answered) == len(players):
             if current_question_index != question_limit - 1:
+                print("all players answered, next question coming up")  # [debug]
                 emit('all_players_answered', broadcast=True)
-                
-            # [Jakub] dodać włączenie nalewania w tym miejscu
             pourDrinks(players_answered_wrong)
 
-            handle_next_question()
+""" handles request for next question"""
+@socketio.on('next_question')
+def next_question():
+    handle_next_question()
 
 
 """sends question to all players"""

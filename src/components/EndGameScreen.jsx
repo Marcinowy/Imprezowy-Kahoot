@@ -1,12 +1,13 @@
 import { useGame } from '../context/GameContext';
 
-export const ScoreboardScreen = () => {
-  const { players, nextQuestion } = useGame();
+export const EndGameScreen = () => {
+  const { players, currentScreen, setCurrentScreen } = useGame();
 
   const sortedPlayers = [...players].sort((a, b) => b.score - a.score);
 
-  const handleNextQuestion = () => {
-    nextQuestion();
+  const handleNewGame = () => {
+    setCurrentScreen('join');
+    window.location.reload();
   };
 
   const medalEmojis = ['🥇', '🥈', '🥉'];
@@ -16,10 +17,10 @@ export const ScoreboardScreen = () => {
       <div className="w-full max-w-3xl">
         <div className="text-center m-8 font-corben">
           <h1 className="text-3xl font-bold text-green-950 mb-2">
-            PUNKTACJA
+            KONIEC GRY
           </h1>
           <p className="text-base text-green-950">
-            Poczekajcie na wódkę zanim zaczniecie kolejną rundę!<br />
+            Gratulujemy wszystkim uczestnikom!
           </p>
         </div>
 
@@ -50,10 +51,10 @@ export const ScoreboardScreen = () => {
 
           {/* New Game Button */}
           <button
-            onClick={handleNextQuestion}
+            onClick={handleNewGame}
             className="text-xl font-bold py-4 px-14 m-4 mx-auto block shadow-md border-none rounded-4xl text-white bg-lime-900 cursor-pointer ease-in-out duration-300 disabled:cursor-not-allowed disabled:bg-gray-400 disabled:opacity-50 font-corben"
           >
-            Następne pytanie
+            Nowa gra
           </button>
         </div>
       </div>

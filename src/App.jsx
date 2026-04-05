@@ -15,6 +15,7 @@ const GameContent = () => {
       {currentScreen === 'lobby' && <LobbyScreen />}
       {currentScreen === 'game' && <GameScreen />}
       {currentScreen === 'scoreboard' && <ScoreboardScreen />}
+      {currentScreen === 'endgame' && <EndGameScreen />}
       <PopoverAlert />
     </div>
   );

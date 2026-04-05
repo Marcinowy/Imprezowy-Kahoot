@@ -51,7 +51,7 @@ export const GameProvider = ({ children }) => {
       setQuestionNumber(data.number);
       setAnswered(false);
       setShowShotglassAlert(false);
-      setShowScoreboard(false);
+      setCurrentScreen('game');
     });
 
     socketIo.on('game_started', (data) => {
@@ -83,10 +83,7 @@ export const GameProvider = ({ children }) => {
 
     socketIo.on('all_players_answered', () => {
       setAnswered(false);
-      setShowScoreboard(true);
-      setTimeout(() => {
-        setShowScoreboard(false);
-      }, 3000);
+      setCurrentScreen('scoreboard');
     });
 
     socketIo.on('didnt_drink', (data) => {
@@ -120,6 +117,10 @@ export const GameProvider = ({ children }) => {
     }
   }, [socket, playerId, answered]);
 
+  const nextQuestion = useCallback(() => {
+    socket.emit('next_question');
+  }, [socket]);
+
   const value = {
     playerId,
     players,
@@ -138,7 +139,8 @@ export const GameProvider = ({ children }) => {
     setNumRounds,
     joinGame,
     startGame,
-    submitAnswer
+    submitAnswer,
+    nextQuestion
   };
 
   return (

@@ -4,6 +4,7 @@ import { LobbyScreen } from './components/LobbyScreen';
 import { GameScreen } from './components/GameScreen';
 import { ScoreboardScreen } from './components/ScoreboardScreen';
 import { PopoverAlert } from './components/PopoverAlert';
+import { EndGameScreen } from './components/EndGameScreen';
 import './styles/index.css';
 
 const GameContent = () => {

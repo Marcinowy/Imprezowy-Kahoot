@@ -68,13 +68,11 @@ export const GameProvider = ({ children }) => {
     });
 
     socketIo.on('game_over', (data) => {
+      console.log('[DEBUG] Received game_over');  // DEBUG
       setAnswered(false);
-      if (joined) {
-        setCurrentScreen('scoreboard');
-        setShowShotglassAlert(false);
-        setGameOver(true);
-        setPlayers(data.players);
-      }
+      setGameOver(true);
+      setPlayers(data.players);
+      setCurrentScreen('endgame');
     });
 
     socketIo.on('lobby_full', (data) => {

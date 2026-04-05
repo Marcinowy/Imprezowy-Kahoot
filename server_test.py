@@ -260,6 +260,9 @@ def handle_answer(data):
             if current_question_index != question_limit - 1:
                 print("all players answered, next question coming up")  # [debug]
                 emit('all_players_answered', broadcast=True)
+            else:
+                print("all players answered, game over coming up")  # [debug]
+                emit('game_over', {'players': players}, broadcast=True)
             pourDrinks(players_answered_wrong)
 
 """ handles request for next question"""

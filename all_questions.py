@@ -155,7 +155,7 @@ questions = [
         "correct_answer": "10"
     },
     {
-        "question": "W której z wymienionych maszyn ruch główny jest wykonywany przez przedmiot a ruch roboczy jest wykonywany przez narzędzie?",
+        "question": "W której z wymienionych maszyn ruch główny jest wykonywany przez przedmiot, a ruch roboczy jest wykonywany przez narzędzie?",
         "options": ["Tokarka", "Szlifierka", "Wiertarka", "Frezarka"], 
         "correct_answer": "Tokarka"
     },
@@ -175,7 +175,7 @@ questions = [
 	"correct_answer": "Wszystkie odpowiedzi są poprawne"
     },
     {
-	"question": "Jakim zwierzątkiem są nasze dzieci?",
+	"question": "Jakimi zwierzątkami są nasze dzieci?",
 	"options": ["Pieskami", "Kotkami", "Koalami", "Misiami"],
 	"correct_answer": "Koalami"
     },
@@ -200,7 +200,7 @@ questions = [
 	"correct_answer": "4"
     },
     {
-	"question": "Gdzie Lena (w sumie to jej rodzice XD) ma działkę?",
+	"question": "Gdzie Lena (a w sumie to jej rodzice XD) ma działkę?",
 	"options": ["W Mosinie", "W Łodzi", "We Wrocławiu", "W Stęszewie"],
 	"correct_answer": "W Łodzi"
     },
@@ -290,14 +290,14 @@ questions = [
 	"correct_answer": "Fryzjerka"
     },
     {
-	"question": "W jakich okolicznościach rodzice młodych po raz pierwszy spotkali się na zapoznawczym obiedzie?",
-	"options": ["Po absolutorium Mateusza", "Z okazji zaręczyn", "Przypadkiem w galerii handlowej", "Na 25 urodziny Matiego"],
-	"correct_answer": "Po absolutorium Mateusza"
-    },
-    {
 	"question": "Jakim przymiotnikiem najczęściej opisujemy świadka Mateusza - Błażeja?",
 	"options": ["Zabawny", "Pocieszny", "Zajebisty", "Pijany"],
 	"correct_answer": "Pocieszny"
+    },
+    {
+	"question": "Gdzie tatusiowie młodej pary spędzają razem czas?",
+	"options": ["Na woodstocku", "Na meczach Kolejorza", "Na rybach", "Na grzybach"],
+	"correct_answer": "Na rybach"
     },
 
 

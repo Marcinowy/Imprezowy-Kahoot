@@ -180,14 +180,14 @@ def handle_start_game(data=None):
     print(f"[DEBUG] start_game called with data={data}")  # DEBUG
     if not game_started:
         # Get num_rounds from data if provided, otherwise use default
-        if data and 'num_rounds' in data:
-            question_limit = int(data['num_rounds'])
+        if data and 'numRounds' in data:
+            question_limit = int(data['numRounds'])
         print(f"[DEBUG] question_limit set to {question_limit}")  # DEBUG
         current_question_index = 0
         for player in players:
             player['score'] = 0
         emit('update_players', {'players': players}, broadcast=True)
-        emit('game_started', broadcast=True)
+        emit('game_started', {'numRounds': question_limit}, broadcast=True)
         game_started = True
         print(f"[DEBUG] Calling shuffle_questions, total questions: {len(questions)}")  # DEBUG
         shuffle_questions()

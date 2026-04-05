@@ -1,9 +1,15 @@
+import { useState } from 'react'; // Dodajemy useState
 import { useGame } from '../context/GameContext';
 
 export const LobbyScreen = () => {
-  const { players, numRounds, setNumRounds, startGame } = useGame();
+  const { players, numRounds, startGame } = useGame();
+  const [localRounds, setLocalRounds] = useState(numRounds);
 
   const sortedPlayers = [...players].sort((a, b) => a.id - b.id);
+
+  const handleStart = () => {
+    startGame(localRounds);
+  };
 
   return (
     <div className="min-h-screen w-full flex flex-col justify-center items-center p-4 sm:p-6 md:p-8 relative overflow-hidden bg-[url(/static/background.png)] lg:bg-[url(/static/wide-background.png)] bg-cover bg-center bg-scroll">
@@ -45,17 +51,18 @@ export const LobbyScreen = () => {
               type="number"
               id="numRounds"
               max="15"
-              value={numRounds}
-              onChange={(e) => setNumRounds(Math.max(0, Math.min(15, parseInt(e.target.value) || 5)))}
+              min="1"
+              value={localRounds}
+              onChange={(e) => setLocalRounds(Math.max(1, Math.min(15, parseInt(e.target.value) || 1)))}
               className="w-full rounded-2xl border-2 border-zinc-300 p-6 transition-all outline-none focus:border-lime-700 focus:shadow-lg focus:shadow-lime-700/20 text-green-950"
             />
           </div>
 
           <button
-            onClick={startGame}
+            onClick={handleStart}
             className="text-xl font-bold py-4 px-14 m-4 mx-auto block shadow-md border-none rounded-4xl text-white bg-lime-900 cursor-pointer ease-in-out duration-300 font-corben"
-            onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
-            onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
           >
             Rozpocznij quiz
           </button>

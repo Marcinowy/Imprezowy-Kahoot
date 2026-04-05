@@ -54,8 +54,9 @@ export const GameProvider = ({ children }) => {
       setShowScoreboard(false);
     });
 
-    socketIo.on('game_started', () => {
+    socketIo.on('game_started', (data) => {
       console.log('[DEBUG] Received game_started, setting screen to game');  // DEBUG
+      setNumRounds(data.numRounds);
       setGameStarted(true);
       setCurrentScreen('game');
     });
@@ -106,11 +107,9 @@ export const GameProvider = ({ children }) => {
     }
   }, [socket]);
 
-  const startGame = useCallback(() => {
-    if (socket) {
-      socket.emit('start_game', { num_rounds: numRounds });
-    }
-  }, [socket, numRounds]);
+  const startGame = (rounds) => {
+    socket.emit('start_game', { numRounds: rounds,});
+  };
 
   const submitAnswer = useCallback((answer) => {
     console.log('[DEBUG] submitAnswer called, playerId=', playerId, 'answered=', answered);  // DEBUG

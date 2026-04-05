@@ -1,7 +1,7 @@
 import { useGame } from '../context/GameContext';
 
 export const ScoreboardScreen = () => {
-  const { players, nextQuestion } = useGame();
+  const { players, nextQuestion, correctAnswer } = useGame();
 
   const sortedPlayers = [...players].sort((a, b) => b.score - a.score);
 
@@ -14,12 +14,12 @@ export const ScoreboardScreen = () => {
   return (
     <div className="min-h-screen w-full flex flex-col justify-center items-center p-4 sm:p-6 md:p-8 relative overflow-hidden bg-[url(/static/background.png)] lg:bg-[url(/static/wide-background.png)] bg-cover bg-center">
       <div className="w-full max-w-3xl">
-        <div className="text-center m-8 font-corben">
-          <h1 className="text-3xl font-bold text-green-950 mb-2">
+        <div className="text-center m-8">
+          <h1 className="text-3xl font-bold text-green-950 mb-2 font-corben">
             PUNKTACJA
           </h1>
           <p className="text-base text-green-950">
-            Poczekajcie na wódkę zanim zaczniecie kolejną rundę!<br />
+            Prawidłowa odpowiedź: <b>{correctAnswer}</b>
           </p>
         </div>
 
@@ -31,7 +31,7 @@ export const ScoreboardScreen = () => {
               {sortedPlayers.map((player, index) => (
                 <div
                   key={player.id}
-                  className={`flex items-center justify-between p-5 md:p-6 rounded-2xl font-bold text-lg md:text-xl transition transform hover:scale-102 shadow-sm border-2 ${
+                  className={`flex items-center justify-between p-5 rounded-2xl font-bold text-lg shadow-sm border-2 ${
                     index === 0
                       ? 'bg-yellow-200 text-yellow-900 border-yellow-300'
                       : index === 1
@@ -41,7 +41,7 @@ export const ScoreboardScreen = () => {
                       : 'bg-white text-green-900 border-green-100'
                   }`}
                 >
-                  <span className="truncate">{medalEmojis[index] || `${index + 1}.`} {player.username}</span>
+                  <span className="truncate">{medalEmojis[index] || `${index + 1}.`} {player.username} | gracz #{player.id}</span>
                   <span className="ml-4 flex-shrink-0">{player.score} pkt</span>
                 </div>
               ))}
@@ -49,6 +49,10 @@ export const ScoreboardScreen = () => {
           </div>
 
           {/* New Game Button */}
+          <div className="text-center mt-8">
+            <p className="text-base text-red-500"> Poczekajcie na wódkę zanim zaczniecie kolejną rundę!
+            </p>
+          </div>
           <button
             onClick={handleNextQuestion}
             className="text-xl font-bold py-4 px-14 m-4 mx-auto block shadow-md border-none rounded-4xl text-white bg-lime-900 cursor-pointer ease-in-out duration-300 disabled:cursor-not-allowed disabled:bg-gray-400 disabled:opacity-50 font-corben"

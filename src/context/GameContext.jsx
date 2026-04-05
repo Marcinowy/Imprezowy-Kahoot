@@ -18,6 +18,7 @@ export const GameProvider = ({ children }) => {
   const [questionNumber, setQuestionNumber] = useState(0);
   const [gameOver, setGameOver] = useState(false);
   const [numRounds, setNumRounds] = useState(5);
+  const [correctAnswer, setCorrectAnswer] = useState(null);
 
   useEffect(() => {
     const socketIo = io('http://' + window.location.hostname + ':5500', {
@@ -79,8 +80,9 @@ export const GameProvider = ({ children }) => {
       alert(data.message);
     });
 
-    socketIo.on('all_players_answered', () => {
+    socketIo.on('all_players_answered', (data) => {
       setAnswered(false);
+      setCorrectAnswer(data.correctAnswer);
       setCurrentScreen('scoreboard');
     });
 
@@ -138,7 +140,8 @@ export const GameProvider = ({ children }) => {
     joinGame,
     startGame,
     submitAnswer,
-    nextQuestion
+    nextQuestion,
+    correctAnswer
   };
 
   return (

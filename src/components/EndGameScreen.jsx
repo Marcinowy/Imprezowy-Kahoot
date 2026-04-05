@@ -1,7 +1,7 @@
 import { useGame } from '../context/GameContext';
 
 export const EndGameScreen = () => {
-  const { players, correctAnswer, setCurrentScreen } = useGame();
+  const { players, pouring, correctAnswer, setCurrentScreen } = useGame();
 
   const sortedPlayers = [...players].sort((a, b) => b.score - a.score);
 
@@ -15,21 +15,21 @@ export const EndGameScreen = () => {
   return (
     <div className="min-h-screen w-full flex flex-col justify-center items-center p-4 sm:p-6 md:p-8 relative overflow-hidden bg-[url(/static/background.png)] lg:bg-[url(/static/wide-background.png)] bg-cover bg-center">
       <div className="w-full max-w-3xl">
-        <div className="text-center m-8 font-corben">
-          <h1 className="text-3xl font-bold text-green-950 mb-2">
-            KONIEC GRY
-          </h1>
-          <p className="text-base text-green-950">
-            Gratulujemy wszystkim uczestnikom!
-          </p>
-          <p className="text-base text-green-950 font-montserrat">
-            Prawidłowa odpowiedź: <b>{correctAnswer}</b>
-          </p>
-        </div>
+        <div className="bg-white/85 backdrop-blur-sm rounded-3xl shadow-xl p-6 space-y-2">
+          <div className="text-center m-8 font-corben">
+            <h1 className="text-3xl font-bold text-green-950 mb-2">
+              KONIEC GRY
+            </h1>
+            <p className="text-base text-green-950">
+              Gratulujemy wszystkim uczestnikom!
+            </p>
+            <p className="text-base text-green-950 font-montserrat">
+              Prawidłowa odpowiedź: <b>{correctAnswer}</b>
+            </p>
+          </div>
 
 
           {/* Podium */}
-        <div className="bg-white/85 backdrop-blur-sm rounded-3xl shadow-xl p-6 space-y-2">
 
           {/* Full Rankings */}
             <div className="space-y-4">
@@ -51,15 +51,28 @@ export const EndGameScreen = () => {
                 </div>
               ))}
             </div>
-          </div>
 
-          {/* New Game Button */}
-          <button
-            onClick={handleNewGame}
-            className="text-xl font-bold py-4 px-14 m-4 mx-auto block shadow-md border-none rounded-4xl text-white bg-lime-900 cursor-pointer ease-in-out duration-300 disabled:cursor-not-allowed disabled:bg-gray-400 disabled:opacity-50 font-corben"
-          >
-            Nowa gra
-          </button>
+            {/* New Game Button */}
+            <button
+              onClick={handleNewGame}
+              disabled={pouring}
+              className="text-xl font-bold py-4 px-14 m-4 mx-auto block shadow-md border-none rounded-4xl text-white bg-lime-900 cursor-pointer ease-in-out duration-300 disabled:cursor-not-allowed disabled:bg-gray-400 disabled:opacity-50 font-corben"
+            >
+              Nowa gra
+            </button>
+            {pouring && (
+              <div className="text-center">
+                <p className="text-base text-red-500"> Poczekajcie na wódkę zanim zaczniecie kolejną grę!
+                </p>
+              </div>
+            )}
+            {!pouring && (
+              <div className="text-center">
+                <p className="text-base text-lime-900"> Gotowy na powtórkę?
+                </p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
   );

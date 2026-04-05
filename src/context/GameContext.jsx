@@ -19,6 +19,7 @@ export const GameProvider = ({ children }) => {
   const [gameOver, setGameOver] = useState(false);
   const [numRounds, setNumRounds] = useState(5);
   const [correctAnswer, setCorrectAnswer] = useState(null);
+  const [pouring, setPouring] = useState(false);
 
   useEffect(() => {
     const socketIo = io('http://' + window.location.hostname + ':5500', {
@@ -72,6 +73,7 @@ export const GameProvider = ({ children }) => {
       console.log('[DEBUG] Received game_over');  // DEBUG
       setAnswered(false);
       setGameOver(true);
+      setPouring(true);
       setPlayers(data.players);
       setCorrectAnswer(data.correctAnswer);
       setCurrentScreen('endgame');
@@ -84,6 +86,7 @@ export const GameProvider = ({ children }) => {
     socketIo.on('all_players_answered', (data) => {
       setAnswered(false);
       setCorrectAnswer(data.correctAnswer);
+      setPouring(true);
       setCurrentScreen('scoreboard');
     });
 
@@ -94,9 +97,15 @@ export const GameProvider = ({ children }) => {
       }
     });
 
+    socketIo.on('drinks_poured', () => {
+      setPouring(false);
+    });
+
     setSocket(socketIo);
 
-    return () => socketIo.disconnect();
+    return () => {
+      socketIo.disconnect();
+    };
   }, []);
 
   const joinGame = useCallback((username) => {
@@ -142,7 +151,8 @@ export const GameProvider = ({ children }) => {
     startGame,
     submitAnswer,
     nextQuestion,
-    correctAnswer
+    correctAnswer,
+    pouring
   };
 
   return (

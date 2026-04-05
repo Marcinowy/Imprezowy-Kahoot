@@ -125,6 +125,7 @@ def pourDrinks(stupidPlayersIds):
         
     if len(stupidPlayersIds) != 0: 
         servoGoToAngle(0)
+    emit('drinks_poured', broadcast=True)
 
 
 @app.route('/')

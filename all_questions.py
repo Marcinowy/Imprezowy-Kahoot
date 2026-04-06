@@ -170,134 +170,239 @@ questions = [
         "correct_answer": "Nad morzem"
     },
     {
-	"question": "Jaką absurdalną zasadę Mati wymyślił Lenie?",
-	"options": ["Nie może otwierać za szeroko szczęki", "Zakaz pływania w oceanie bez przywiązania się liną do drzewa", "", "Wszystkie odpowiedzi są poprawne"],
-	"correct_answer": "Wszystkie odpowiedzi są poprawne"
+        "question": "Jaką absurdalną zasadę Mati wymyślił Lenie?",
+        "options": ["Nie może otwierać za szeroko szczęki", "Zakaz pływania w oceanie bez przywiązania się liną do drzewa", "", "Wszystkie odpowiedzi są poprawne"],
+        "correct_answer": "Wszystkie odpowiedzi są poprawne"
     },
     {
-	"question": "Jakimi zwierzątkami są nasze dzieci?",
-	"options": ["Pieskami", "Kotkami", "Koalami", "Misiami"],
-	"correct_answer": "Koalami"
+        "question": "Jakimi zwierzątkami są nasze dzieci?",
+        "options": ["Pieskami", "Kotkami", "Koalami", "Misiami"],
+        "correct_answer": "Koalami"
     },
     {
-	"question": "Jaka jest (w przybliżeniu) różnica wzrostu między Lenką a Matim?",
-	"options": ["35 cm", "30 cm", "25 cm", "20 cm"],
-	"correct_answer": "25 cm"
+        "question": "Jaka jest (w przybliżeniu) różnica wzrostu między Lenką a Matim?",
+        "options": ["35 cm", "30 cm", "25 cm", "20 cm"],
+        "correct_answer": "25 cm"
     },
     {
-	"question": "Kolor oczu Pana Młodego to:",
-	"options": ["Zielone", "Niebieskie", "Szare", "Piwne"],
-	"correct_answer": "Zielone"
+        "question": "Kolor oczu Pana Młodego to:",
+        "options": ["Zielone", "Niebieskie", "Szare", "Piwne"],
+        "correct_answer": "Zielone"
     },
     {
-	"question": "Co Mateusz zje ze smakiem, a Lena nie tknie nawet kijem?",
-	"options": ["Kaszanka", "Brukselka", "Serduszka", "Kurze łapki"],
-	"correct_answer": "Kaszanka"
+        "question": "Co Mateusz zje ze smakiem, a Lena nie tknie nawet kijem?",
+        "options": ["Kaszanka", "Brukselka", "Serduszka", "Kurze łapki"],
+        "correct_answer": "Kaszanka"
     },
     {
-	"question": "Ile stopni celsjusza jest na dnie Rowu Marjańskiego?",
-	"options": ["1", "2", "3", "4"],
-	"correct_answer": "4"
+        "question": "Ile stopni celsjusza jest na dnie Rowu Marjańskiego?",
+        "options": ["1", "2", "3", "4"],
+        "correct_answer": "4"
     },
     {
-	"question": "Gdzie Lena (a w sumie to jej rodzice XD) ma działkę?",
-	"options": ["W Mosinie", "W Łodzi", "We Wrocławiu", "W Stęszewie"],
-	"correct_answer": "W Łodzi"
+        "question": "Gdzie Lena (a w sumie to jej rodzice XD) ma działkę?",
+        "options": ["W Mosinie", "W Łodzi", "We Wrocławiu", "W Stęszewie"],
+        "correct_answer": "W Łodzi"
     },
     {
-	"question": "Jaką legendarną nazwę ma grupa przyjaciółek Leny z gimnazjum?",
-	"options": ["VIP ekipa", "PLAN", "Sigmy", "Ploty"],
-	"correct_answer": "PLAN"
+        "question": "Jaką legendarną nazwę ma grupa przyjaciółek Leny z gimnazjum?",
+        "options": ["VIP ekipa", "PLAN", "Sigmy", "Ploty"],
+        "correct_answer": "PLAN"
     },
     {
-	"question": "Podczas jakiej zabawy Lena złamała palec w liceum?",
-	"options": ["Słoneczko", "Chowanego", "Ciuciubabka", "Prawda czy wyzwanie"],
-	"correct_answer": "Ciuciubabka"
+        "question": "Podczas jakiej zabawy Lena złamała palec w liceum?",
+        "options": ["Słoneczko", "Chowanego", "Ciuciubabka", "Prawda czy wyzwanie"],
+        "correct_answer": "Ciuciubabka"
     },
     {
-	"question": "Kiedy świadkowa dostanie pierścionek od swojego chłopaka?",
-	"options": ["W tym roku", "Już niedługo", "Może w te wakacje", "Wszystkie odpowiedzi są poprawne"],
-	"correct_answer": "Wszystkie odpowiedzi są poprawne"
+        "question": "Kiedy świadkowa dostanie pierścionek od swojego chłopaka?",
+        "options": ["W tym roku", "Już niedługo", "Może w te wakacje", "Wszystkie odpowiedzi są poprawne"],
+        "correct_answer": "Wszystkie odpowiedzi są poprawne"
     },
     {
-	"question": "Jak Matiego nazywali w podstawówce?",
-	"options": ["Długi Mati", "Piggy", "Frajer XD", "Matix"],
-	"correct_answer": "Piggy"
+        "question": "Jak Matiego nazywali w podstawówce?",
+        "options": ["Długi Mati", "Piggy", "Frajer XD", "Matix"],
+        "correct_answer": "Piggy"
     },
     {
-	"question": "Czego Panna Młoda absolutnie nie powinna robić sama w odniesieniu do swojej sukni?",
-	"options": ["Chować jej do szafy", "Prasować jej rano", "Szyć jej samodzielnie", "Zakładać samodzielnie w dniu ślubu"],
-	"correct_answer": "Szyć jej samodzielnie"
+        "question": "Czego Panna Młoda absolutnie nie powinna robić sama w odniesieniu do swojej sukni?",
+        "options": ["Chować jej do szafy", "Prasować jej rano", "Szyć jej samodzielnie", "Zakładać samodzielnie w dniu ślubu"],
+        "correct_answer": "Szyć jej samodzielnie"
     },
     {
-	"question": "Jak ma na imię brat Lenki?",
-	"options": ["Wojtek", "Rafał", "Filip", "Robert"],
-	"correct_answer": "Rafał"
+        "question": "Jak ma na imię brat Lenki?",
+        "options": ["Wojtek", "Rafał", "Filip", "Robert"],
+        "correct_answer": "Rafał"
     },
     {
-	"question": "Co oznacza potknięcie się Panny Młodej w drodze do ołtarza?",
-	"options": ["Szybkie powiększenie rodziny", "Długowieczność", "Nic, to tylko stres", "Pechowe życie w nowym domu"],
-	"correct_answer": "Pechowe życie w nowym domu"
+        "question": "Co oznacza potknięcie się Panny Młodej w drodze do ołtarza?",
+        "options": ["Szybkie powiększenie rodziny", "Długowieczność", "Nic, to tylko stres", "Pechowe życie w nowym domu"],
+        "correct_answer": "Pechowe życie w nowym domu"
     },
     {
-	"question": "Co wróży przelotny deszcz w dniu ślubu?",
-	"options": ["Błogosławieństwo i urodzaj", "Wieczny smutek", "Szybki rozwód", "Kłótnie z teściową"],
-	"correct_answer": "Błogosławieństwo i urodzaj"
+        "question": "Co wróży przelotny deszcz w dniu ślubu?",
+        "options": ["Błogosławieństwo i urodzaj", "Wieczny smutek", "Szybki rozwód", "Kłótnie z teściową"],
+        "correct_answer": "Błogosławieństwo i urodzaj"
     },
     {
-	"question": "Co się stanie, gdy w nowym domu zepsuje się kran?",
-	"options": ["Mateusz (z ewentualną pomocą swojego taty) naprawi go w 5 minut", "Lena znajdzie tutorial na YouTubie i zrobi to lepiej", "Zadzwonią po fachowca", "Zakręcą zawór i uznają, że od dzisiaj myją się u sąsiadów"],
-	"correct_answer": "Mateusz (z ewentualną pomocą swojego taty) naprawi go w 5 minut"
+        "question": "Co się stanie, gdy w nowym domu zepsuje się kran?",
+        "options": ["Mateusz (z ewentualną pomocą swojego taty) naprawi go w 5 minut", "Lena znajdzie tutorial na YouTubie i zrobi to lepiej", "Zadzwonią po fachowca", "Zakręcą zawór i uznają, że od dzisiaj myją się u sąsiadów"],
+        "correct_answer": "Mateusz (z ewentualną pomocą swojego taty) naprawi go w 5 minut"
     },
     {
-	"question": "Jaka była pierwsza randka Pary Młodej?",
-	"options": ["KKK (Kino, Kolacja, Kopulacja)", "Wspólny spacerek", "Obiad w restauracji", "Kawka w kawiarni"],
-	"correct_answer": "Wspólny spacerek"
+        "question": "Jaka była pierwsza randka Pary Młodej?",
+        "options": ["KKK (Kino, Kolacja, Kopulacja)", "Wspólny spacerek", "Obiad w restauracji", "Kawka w kawiarni"],
+        "correct_answer": "Wspólny spacerek"
     },
     {
-	"question": "Kto ma większą tendencję do podjadania w nocy?",
-	"options": ["Lenka", "Mati", "Oboje tak samo", "Żaden z nich"],
-	"correct_answer": "Mati"
+        "question": "Kto ma większą tendencję do podjadania w nocy?",
+        "options": ["Lenka", "Mati", "Oboje tak samo", "Żaden z nich"],
+        "correct_answer": "Mati"
     },
     {
-	"question": "Kto z obecnych gości przeszedł najdłuższą drogę 'od wroga do przyjaciela' z Panem Młodym?",
-	"options": ["Tomek Kąkolewski", "Wojtek Walczak", "Błażej Czekała", "Filip Woźniak"],
-	"correct_answer": "Tomek Kąkolewski"
+        "question": "Kto z obecnych gości przeszedł najdłuższą drogę 'od wroga do przyjaciela' z Panem Młodym?",
+        "options": ["Tomek Kąkolewski", "Wojtek Walczak", "Błażej Czekała", "Filip Woźniak"],
+        "correct_answer": "Tomek Kąkolewski"
     },
     {
-	"question": "Ile łącznie narodowości reprezentują obecni goście?",
-	"options": ["2", "3", "4", "5"],
-	"correct_answer": "5"
+        "question": "Ile łącznie narodowości reprezentują obecni goście?",
+        "options": ["2", "3", "4", "5"],
+        "correct_answer": "5"
     },
     {
-	"question": "Ile Weronik znajduje się na liście gości?",
-	"options": ["2", "8", "4", "6"],
-	"correct_answer": "4"
+        "question": "Ile Weronik znajduje się na liście gości?",
+        "options": ["2", "8", "4", "6"],
+        "correct_answer": "4"
     },
     {
-	"question": "Ile osób na sali nosi to samo nazwisko co Mateusz?",
-	"options": ["2", "5", "4", "6"],
-	"correct_answer": "5"
+        "question": "Ile osób na sali nosi to samo nazwisko co Mateusz?",
+        "options": ["2", "5", "4", "6"],
+        "correct_answer": "5"
     },
     {
-	"question": "Kto z gości dowiedział się jako pierwszy o zaręczynach?",
-	"options": ["Aga Mańke", "Nadia Plenzler", "Rodzice Leny", "Rodzice Mateusza"],
-	"correct_answer": "Aga Mańke"
+        "question": "Kto z gości dowiedział się jako pierwszy o zaręczynach?",
+        "options": ["Aga Mańke", "Nadia Plenzler", "Rodzice Leny", "Rodzice Mateusza"],
+        "correct_answer": "Aga Mańke"
     },
     {
-	"question": "Kim z zawodu jest mama Panny Młodej?",
-	"options": ["Fryzjerka", "Krawcowa", "Kosmetyczka", "Nauczycielka"],
-	"correct_answer": "Fryzjerka"
+        "question": "Kim z zawodu jest mama Panny Młodej?",
+        "options": ["Fryzjerka", "Krawcowa", "Kosmetyczka", "Nauczycielka"],
+        "correct_answer": "Fryzjerka"
     },
     {
-	"question": "Jakim przymiotnikiem najczęściej opisujemy świadka Mateusza - Błażeja?",
-	"options": ["Zabawny", "Pocieszny", "Zajebisty", "Pijany"],
-	"correct_answer": "Pocieszny"
+        "question": "Jakim przymiotnikiem najczęściej opisujemy świadka Mateusza - Błażeja?",
+        "options": ["Zabawny", "Pocieszny", "Zajebisty", "Pijany"],
+        "correct_answer": "Pocieszny"
     },
     {
-	"question": "Gdzie tatusiowie młodej pary spędzają razem czas?",
-	"options": ["Na woodstocku", "Na meczach Kolejorza", "Na rybach", "Na grzybach"],
-	"correct_answer": "Na rybach"
+        "question": "Gdzie tatusiowie młodej pary spędzają razem czas?",
+        "options": ["Na woodstocku", "Na meczach Kolejorza", "Na rybach", "Na grzybach"],
+        "correct_answer": "Na rybach"
+    },
+    {
+        "question": "Największe jezioro w okoliczach Lutomia pod względem powierzchni to:",
+        "options": ["Barding", "Lutomskie", "Białcz Wielki", "Goleczewskie"],
+        "correct_answer": "Lutomskie"
+    }, 
+    {
+        "question": "Jaki wydział ukończył Mateusz na studiach?",
+        "options": ["Wydział automatyki, robotyki i elektrotechniki", "Wydział mechatroniki", "Wydział inżynierii mechanicznej", "Wydział inżynierii materiałowej i fizyki technicznej"],
+        "correct_answer": "Wydział inżynierii mechanicznej"
+    },
+    {
+        "question": "Gdzie ostatnio para młoda była na wakacjach w górach?",
+        "options": ["Karkonosze", "Tatry", "Bieszczady", "Odrzańskie"],
+        "correct_answer": "Karkonosze"
+    },
+    {
+        "question": "Z jakiej kuchni Mateusz był ze swoim świadkiem na kursie gotowania?",
+        "options": ["Wchodnio-azjatycka", "Włoska", "Desery francuskie", "Polskie chleby"],
+        "correct_answer": "Wchodnio-azjatycka"
+    },
+    {
+        "question": "Jakie zwierzątko chciałaby mieć Lena?",
+        "options": ["Pies", "Kot", "Królik", "Chomik"],
+        "correct_answer": "Kot"
+    },
+    {
+        "question": "Co zrobił nowokupiony chomik, gdy Mateusz go ścisnął?",
+        "options": ["Zrobił kupę", "Zwymiotował", "Ugryzł go w palec", "Kwiknął"],
+        "correct_answer": "Ugryzł go w palec"
+    },
+    {
+        "question": "Jaki rekord na klatę ma Mateusz?",
+        "options": ["80 kg", "90 kg", "92,5 kg", "100 kg"],
+        "correct_answer": "100 kg"
+    },
+    {
+        "question": "W którym miesiącu ciąży jest kuzynka Mateusza - Agata?",
+        "options": ["To Agata jest w ciąży???", "7", "8", "9"],
+        "correct_answer": "9"
+    },
+    {
+        "question": "Na ilu weselach byliśmy razem przed naszym własnym?",
+        "options": ["1", "2", "3", "4"],
+        "correct_answer": "3"
+    },
+    {
+        "question": "Jaki projekt zrealizował Mateusz w ramach pracy dyplomowej inżynierskiej?",
+        "options": ["Metalowe szachy", "Projekt napawarki", "Badania plastyczności włókna węglowego", "Projekt maszyny do testowania sprężyn"],
+        "correct_answer": "Metalowe szachy"
+    },
+    {
+        "question": "Najnowsze hobby Pana Młodego to:",
+        "options": ["Łyżwiarstwo figurowe", "Kalistenika", "Ścianka wspinaczkowa", "Bieganie"],
+        "correct_answer": "Ścianka wspinaczkowa"
+    },
+    {
+        "question": "Jakie imię (prawdopodobnie) będzie miał najmłodszy członek rodziny Mateuszka?",
+        "options": ["Diana", "Mateusz Jr", "Katarzyna", "Piotr"],
+        "correct_answer": "Diana"
+    },
+    {
+        "question": "Jakie słynne miejsce znajduje się w chińskim mieście Xi'an?",
+        "options": ["Wielki Mur Chiński", "100 metrowy złoty Budda", "Plac Tiananmen", "Terakotowa Armia"],
+        "correct_answer": "Terakotowa Armia"
+    },
+    {
+        "question": "Na jaki mecz razem poszliśmy?",
+        "options": ["Lech kontra Legia (piłka nożna)", "Hiroshima Carp vs Hanshin Tigers (baseball)", "Jastrzębski Węgiel kontra Warta Zawiercie (siatkówka)", "Skelleftea AIK vs Oskarshamn (hokej)"],
+        "correct_answer": "Skelleftea AIK vs Oskarshamn (hokej)"
+    },
+    {
+        "question": "Ile razy byliśmy razem na polandrocku?",
+        "options": ["1", "2", "3", "5"],
+        "correct_answer": "2"
+    },
+    {
+        "question": "",
+        "options": ["", "", "", ""],
+        "correct_answer": ""
+    },
+    {
+        "question": "",
+        "options": ["", "", "", ""],
+        "correct_answer": ""
+    },
+    {
+        "question": "",
+        "options": ["", "", "", ""],
+        "correct_answer": ""
+    },
+    {
+        "question": "",
+        "options": ["", "", "", ""],
+        "correct_answer": ""
+    },
+    {
+        "question": "",
+        "options": ["", "", "", ""],
+        "correct_answer": ""
+    },
+    {
+        "question": "",
+        "options": ["", "", "", ""],
+        "correct_answer": ""
     },
 
 

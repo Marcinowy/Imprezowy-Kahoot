@@ -20,14 +20,8 @@ A Flask backend with a modern React frontend for a drinking game quiz applicatio
     │   ├── LobbyScreen.jsx
     │   ├── GameScreen.jsx
     │   ├── ScoreboardScreen.jsx
-    │   └── PopoverAlert.jsx
     └── styles/
         ├── index.css
-        ├── join-game.css
-        ├── start-game.css
-        ├── actual-game.css
-        ├── popover.css
-        └── scoreboard.css
 ```
 
 ## Prerequisites

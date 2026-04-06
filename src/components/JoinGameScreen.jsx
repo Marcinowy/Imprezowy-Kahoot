@@ -24,7 +24,7 @@ export const JoinGameScreen = () => {
           </p>
         </div>
 
-        <div className="rounded-3xl shadow-xl p-8 sm:p-10 space-y-6 border-2 bg-white border-zinc-300 shadow-md">
+        <div className="bg-white/85 backdrop-blur-sm rounded-3xl shadow-xl p-6 space-y-2">
           <input
             type="text"
             placeholder="Wpisz swoje imię"

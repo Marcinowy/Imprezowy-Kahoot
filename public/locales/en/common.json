@@ -1,5 +1,17 @@
 {
     "joinGame": "Join Game",
     "enterUsername": "Enter your username",
-    "greetings": "We hope you're having a great time at our wedding!<br />Welcome to our drinking quiz :)"
+    "greetings": "We hope you're having a great time at our wedding!<br />Welcome to our drinking quiz :)",
+    "waitingForPlayers": "Wait for the rest!",
+    "startGame": "Start the quiz",
+    "players": "Players",
+    "player": "Player",
+    "warningBeforeStart": "Make sure all players have joined!",
+    "roundsNumber": "Number of rounds",
+    "scores": "SCORES",
+    "correctAnswer": "Correct answer",
+    "points": "pts",
+    "nextQuestion": "Next question",
+    "pouringWarning": "Wait for the vodka before starting the next round!",
+    "nextQuestionExplanation": "Click to continue the game!"
 }

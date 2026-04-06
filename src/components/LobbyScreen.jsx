@@ -1,9 +1,11 @@
-import { useState } from 'react'; // Dodajemy useState
+import { useState } from 'react';
 import { useGame } from '../context/GameContext';
+import { useTranslation } from "react-i18next";
 
 export const LobbyScreen = () => {
   const { players, numRounds, startGame } = useGame();
   const [localRounds, setLocalRounds] = useState(numRounds);
+  const { t } = useTranslation();
 
   const sortedPlayers = [...players].sort((a, b) => a.id - b.id);
 
@@ -17,12 +19,12 @@ export const LobbyScreen = () => {
         <div className="bg-white/85 backdrop-blur-sm rounded-3xl shadow-xl p-6 space-y-2">
           <div className="text-center m-4">
             <h1 className="font-bold text-green-950 text-3xl mb-2 font-corben">
-              Poczekaj na resztę!
+              {t("waitingForPlayers")}
             </h1>
           </div>
 
           <div className="bg-white rounded-2xl p-6 border-2 border-lime-900">
-            <h2 className="text-2xl font-bold text-lime-900 mb-1 font-corben">Gracze:</h2>
+            <h2 className="text-2xl font-bold text-lime-900 mb-1 font-corben">{t("players")}:</h2>
             <div className="grid grid-cols-1 gap-5">
               {sortedPlayers.map((player) => (
                 <div
@@ -35,18 +37,16 @@ export const LobbyScreen = () => {
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-lg font-bold text-lime-900 truncate">{player.username}</p>
-                      <p className="text-sm text-lime-700">Gracz #{player.id}</p>
+                      <p className="text-sm text-lime-700">{t("player")} #{player.id}</p>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
 
-            <p className="text-base text-red-500 text-center m-4">
-              Upewnij się, że wszyscy gracze dołączyli!
-            </p>
+            <p className="text-base text-red-500 text-center m-4">{t("warningBeforeStart")}</p>
 
-            <h2 className="text-2xl font-bold text-lime-900 mb-1 font-corben">Liczba rund:</h2>
+            <h2 className="text-2xl font-bold text-lime-900 mb-1 font-corben">{t("roundsNumber")}:</h2>
             <input
               type="number"
               id="numRounds"
@@ -64,7 +64,7 @@ export const LobbyScreen = () => {
             onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
             onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
           >
-            Rozpocznij quiz
+            {t("startGame")}
           </button>
         </div>
       </div>

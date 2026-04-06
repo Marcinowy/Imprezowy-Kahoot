@@ -1,5 +1,17 @@
 {
     "joinGame": "Dołącz do gry",
     "enterUsername": "Wprowadź swoją nazwę użytkownika",
-    "greetings": "Mamy nadzieję, że dobrze się bawisz na naszym weselu!<br />Zapraszamy do naszego pijackiego quizu :)"
+    "greetings": "Mamy nadzieję, że dobrze się bawisz na naszym weselu!<br />Zapraszamy do naszego pijackiego quizu :)",
+    "waitingForPlayers": "Poczekaj na resztę!",
+    "startGame": "Rozpocznij quiz",
+    "players": "Gracze",
+    "player": "Gracz",
+    "warningBeforeStart": "Upewnij się, że wszyscy gracze dołączyli!",
+    "roundsNumber": "Liczba rund",
+    "scores": "PUNKTACJA",
+    "correctAnswer": "Prawidłowa odpowiedź",
+    "points": "pkt",
+    "nextQuestion": "Następne pytanie",
+    "pouringWarning": "Poczekajcie na wódkę zanim zaczniecie kolejną rundę!",
+    "nextQuestionExplanation": "Kliknij aby kontynuować grę!"
 }

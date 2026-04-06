@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { useGame } from '../context/GameContext';
+import { Trans, useTranslation } from "react-i18next";
 
 export const JoinGameScreen = () => {
   const [username, setUsername] = useState('');
   const { joinGame } = useGame();
+  const { t, i18n } = useTranslation();
 
   const handleJoin = () => {
     if (username.trim()) {
@@ -18,16 +20,13 @@ export const JoinGameScreen = () => {
           <h1 className="font-bold text-green-950 text-3xl mb-2">
             KAHOOT TIME
           </h1>
-          <p className="text-base text-green-950">
-            Mamy nadzieję, że dobrze się bawisz na naszym weselu!<br />
-            Zapraszamy do naszego pijackiego quizu :)
-          </p>
+          <p className="text-base text-green-950"> <Trans i18nKey="greetings" /> </p>
         </div>
 
         <div className="bg-white/85 backdrop-blur-sm rounded-3xl shadow-xl p-6 space-y-2">
           <input
             type="text"
-            placeholder="Wpisz swoje imię"
+            placeholder={t("enterUsername")}
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             autoFocus
@@ -42,9 +41,20 @@ export const JoinGameScreen = () => {
             onMouseEnter={(e) => !username.trim() || (e.target.style.transform = 'scale(1.05)')}
             onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
           >
-            Dołącz do gry
+            {t("joinGame")}
           </button>
         </div>
+      </div>
+      <div class="inline-flex items-center gap-2 mt-8">
+        <label for="language-switch" class="text-slate-600 text-sm cursor-pointer">Polski</label>
+      
+        <div class="relative inline-block w-11 h-5">
+          <input id="language-switch" type="checkbox" onChange={(e) => i18n.changeLanguage(e.target.checked ? 'en' : 'pl')} class="peer appearance-none w-11 h-5 bg-lime-700 rounded-full checked:bg-lime-900 cursor-pointer transition-colors duration-300" />
+          <label for="language-switch" class="absolute top-0 left-0 w-5 h-5 bg-white rounded-full border border-lime-750 shadow-sm transition-transform duration-300 peer-checked:translate-x-6 peer-checked:border-lime-950 cursor-pointer">
+          </label>
+        </div>
+      
+        <label for="language-switch" class="text-slate-600 text-sm cursor-pointer">English</label>
       </div>
     </div>
   );

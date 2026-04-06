@@ -12,14 +12,12 @@ export const GameProvider = ({ children }) => {
   const [joined, setJoined] = useState(false);
   const [currentScreen, setCurrentScreen] = useState('join'); // join, lobby, game, scoreboard
   const [answered, setAnswered] = useState(false);
-  const [showScoreboard, setShowScoreboard] = useState(false);
-  const [showShotglassAlert, setShowShotglassAlert] = useState(false);
-  const [shotglassAlertId, setShotglassAlertId] = useState(null);
   const [questionNumber, setQuestionNumber] = useState(0);
   const [gameOver, setGameOver] = useState(false);
   const [numRounds, setNumRounds] = useState(5);
   const [correctAnswer, setCorrectAnswer] = useState(null);
   const [pouring, setPouring] = useState(false);
+  const [language, setLanguage] = useState('pl'); 
 
   useEffect(() => {
     const socketIo = io('http://' + window.location.hostname + ':5500', {
@@ -52,7 +50,6 @@ export const GameProvider = ({ children }) => {
       });
       setQuestionNumber(data.number);
       setAnswered(false);
-      setShowShotglassAlert(false);
       setCurrentScreen('game');
     });
 
@@ -92,8 +89,6 @@ export const GameProvider = ({ children }) => {
 
     socketIo.on('didnt_drink', (data) => {
       if (joined) {
-        setShotglassAlertId(data.id);
-        setShowShotglassAlert(true);
       }
     });
 
@@ -140,9 +135,6 @@ export const GameProvider = ({ children }) => {
     currentScreen,
     setCurrentScreen,
     answered,
-    showScoreboard,
-    showShotglassAlert,
-    shotglassAlertId,
     questionNumber,
     gameOver,
     numRounds,
@@ -152,7 +144,9 @@ export const GameProvider = ({ children }) => {
     submitAnswer,
     nextQuestion,
     correctAnswer,
-    pouring
+    pouring,
+    language,
+    setLanguage,
   };
 
   return (

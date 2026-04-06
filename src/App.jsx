@@ -7,15 +7,16 @@ import { EndGameScreen } from './components/EndGameScreen';
 import './styles/index.css';
 
 const GameContent = () => {
-  const { currentScreen } = useGame();
+  const { currentScreen, joined } = useGame();
 
   return (
     <div className="main-container w-full h-full">
       {currentScreen === 'join' && <JoinGameScreen />}
-      {currentScreen === 'lobby' && <LobbyScreen />}
-      {currentScreen === 'game' && <GameScreen />}
-      {currentScreen === 'scoreboard' && <ScoreboardScreen />}
-      {currentScreen === 'endgame' && <EndGameScreen />}
+      {joined && currentScreen === 'lobby' && <LobbyScreen />}
+      {joined && currentScreen === 'game' && <GameScreen />}
+      {joined && currentScreen === 'scoreboard' && <ScoreboardScreen />}
+      {joined && currentScreen === 'endgame' && <EndGameScreen />}
+      {!joined && currentScreen !== 'join' && <JoinGameScreen />}
     </div>
   );
 };

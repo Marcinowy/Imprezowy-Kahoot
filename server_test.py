@@ -268,7 +268,10 @@ def handle_answer(data):
                 p_correct_option = next((opt for opt in p_options if opt['id'] == correct_option_id), None)
                 p_correct_text = p_correct_option['text'] if p_correct_option else "???"
 
-                payload = {'correctAnswer': p_correct_text}
+                payload = {
+                    'correctAnswer': p_correct_text,
+                    'wrongPlayerIds': players_answered_wrong
+        }
 
                 if current_question_index != question_limit - 1:
                     emit('all_players_answered', payload, room=p['sid'])

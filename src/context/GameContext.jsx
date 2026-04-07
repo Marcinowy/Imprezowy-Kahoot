@@ -19,6 +19,7 @@ export const GameProvider = ({ children }) => {
   const [correctAnswer, setCorrectAnswer] = useState(null);
   const [pouring, setPouring] = useState(false);
   const [language, setLanguage] = useState('pl'); 
+  const [wrongPlayerIds, setWrongPlayerIds] = useState([]);
 
   useEffect(() => {
     const socketIo = io('http://' + window.location.hostname + ':5500', {
@@ -43,7 +44,7 @@ export const GameProvider = ({ children }) => {
     });
 
     socketIo.on('new_question', (data) => {
-      console.log('[DEBUG] Received new_question:', data);  // DEBUG
+      setWrongPlayerIds([]);
       setCurrentQuestion({
         question: data.question,
         options: data.options,
@@ -55,7 +56,7 @@ export const GameProvider = ({ children }) => {
     });
 
     socketIo.on('game_started', (data) => {
-      console.log('[DEBUG] Received game_started, setting screen to game');  // DEBUG
+      setWrongPlayerIds([]);
       setNumRounds(data.numRounds);
       setGameStarted(true);
       setCurrentScreen('game');
@@ -68,7 +69,7 @@ export const GameProvider = ({ children }) => {
     });
 
     socketIo.on('game_over', (data) => {
-      console.log('[DEBUG] Received game_over');  // DEBUG
+      setWrongPlayerIds(data.wrongPlayerIds);
       setAnswered(false);
       setGameOver(true);
       setPouring(true);
@@ -82,6 +83,7 @@ export const GameProvider = ({ children }) => {
     });
 
     socketIo.on('all_players_answered', (data) => {
+      setWrongPlayerIds(data.wrongPlayerIds);
       setAnswered(false);
       setCorrectAnswer(data.correctAnswer);
       setPouring(true);
@@ -148,6 +150,7 @@ export const GameProvider = ({ children }) => {
     pouring,
     language,
     setLanguage,
+    wrongPlayerIds
   };
 
   return (

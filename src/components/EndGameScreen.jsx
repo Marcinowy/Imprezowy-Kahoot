@@ -2,7 +2,7 @@ import { useGame } from '../context/GameContext';
 import { useTranslation } from "react-i18next";
 
 export const EndGameScreen = () => {
-  const { players, pouring, correctAnswer, setCurrentScreen } = useGame();
+  const { players, pouring, correctAnswer, setCurrentScreen, wrongPlayerIds } = useGame();
   const { t } = useTranslation();
 
   const sortedPlayers = [...players].sort((a, b) => b.score - a.score);
@@ -49,7 +49,7 @@ export const EndGameScreen = () => {
                   }`}
                 >
                   <span className="truncate">{medalEmojis[index] || `${index + 1}.`} {player.username}</span>
-                  <span className="ml-4 flex-shrink-0">{player.score} {t('points')}</span>
+                  <span className="ml-4 flex-shrink-0">{wrongPlayerIds.includes(player.id) ? '🫗' : ''} {player.score} {t('points')}</span>
                 </div>
               ))}
             </div>

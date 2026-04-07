@@ -19,5 +19,8 @@
     "readyToReplay": "Gotowy na powtórkę?",
     "newGame": "Nowa gra",
     "loadingQuestion": "Ładowanie pytania...",
-    "waitingForOthers": "Czekamy na innych graczy..."
+    "waitingForOthers": "Czekamy na innych graczy...",
+    "gameMode": "Tryb gry",
+    "looserMode": "Pije przegrany",
+    "winnerMode": "Pije zwycięzca"
 }

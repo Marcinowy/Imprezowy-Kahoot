@@ -20,6 +20,7 @@ export const GameProvider = ({ children }) => {
   const [pouring, setPouring] = useState(false);
   const [language, setLanguage] = useState('pl'); 
   const [wrongPlayerIds, setWrongPlayerIds] = useState([]);
+  const [gameMode, setGameMode] = useState('looserMode');
 
   useEffect(() => {
     const socketIo = io('http://' + window.location.hostname + ':5500', {
@@ -112,8 +113,10 @@ export const GameProvider = ({ children }) => {
     }
   }, [socket]);
 
-  const startGame = (rounds) => {
-    socket.emit('start_game', { numRounds: rounds,});
+  const startGame = (rounds, mode) => {
+    console.log('[DEBUG] startGame called with rounds=', rounds, 'mode=', mode);  // DEBUG
+    setGameMode(mode);
+    socket.emit('start_game', { numRounds: rounds, gameMode: mode });
   };
 
   const submitAnswer = useCallback((answer) => {
@@ -150,7 +153,8 @@ export const GameProvider = ({ children }) => {
     pouring,
     language,
     setLanguage,
-    wrongPlayerIds
+    wrongPlayerIds,
+    gameMode
   };
 
   return (

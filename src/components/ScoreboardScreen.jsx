@@ -2,7 +2,7 @@ import { useGame } from '../context/GameContext';
 import { useTranslation } from "react-i18next";
 
 export const ScoreboardScreen = () => {
-  const { players, pouring, nextQuestion, correctAnswer, wrongPlayerIds } = useGame();
+  const { players, pouring, nextQuestion, correctAnswer, wrongPlayerIds, gameMode } = useGame();
   const { t } = useTranslation();
 
   const sortedPlayers = [...players].sort((a, b) => b.score - a.score);
@@ -11,6 +11,12 @@ export const ScoreboardScreen = () => {
     nextQuestion();
   };
 
+  const drinkingPlayerIds = gameMode === 'looserMode' 
+  ? wrongPlayerIds 
+  : players
+      .filter(player => !wrongPlayerIds.includes(player.id))
+      .map(player => player.id);
+    
   return (
     <div className="min-h-screen w-full flex flex-col justify-center items-center p-4 sm:p-6 md:p-8 relative overflow-hidden bg-[url(/static/background.png)] lg:bg-[url(/static/wide-background.png)] bg-cover bg-center">
       <div className="w-full max-w-3xl">
@@ -35,7 +41,7 @@ export const ScoreboardScreen = () => {
                   className="flex items-center justify-between p-5 rounded-2xl font-bold text-lg shadow-sm border-2 bg-white text-green-900 border-green-100"
                 >
                   <span className="truncate">{index + 1}. {player.username} - {t("player")} #{player.id}</span>
-                  <span className="ml-4 flex-shrink-0">{wrongPlayerIds.includes(player.id) ? '🫗' : ''} {player.score} {t("points")}</span>
+                  <span className="ml-4 flex-shrink-0">{drinkingPlayerIds.includes(player.id) ? '🫗' : ''} {player.score} {t("points")}</span>
                 </div>
               ))}
             </div>

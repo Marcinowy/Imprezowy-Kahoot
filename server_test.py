@@ -64,6 +64,9 @@ game_started = False
 """Store the current question index"""
 current_question_index = 0
 
+""" Store the current game mode"""
+game_mode = 'looserMode'  # default game mode, can be 'looserMode' or 'winnerMode'
+
 
 """function to set servo at a given angle"""
 def servoGoToAngle(angle):
@@ -104,8 +107,15 @@ def pumpDrink(playerID):
 
 """function for handling penalty for bad answers"""
 def pourDrinks(stupidPlayersIds):
-    
-    for playerID in stupidPlayersIds:
+    global game_mode
+    for player in players:
+        playerID = player['id']
+
+        if game_mode == 'looserMode' and playerID not in stupidPlayersIds:
+            continue
+        if game_mode == 'winnerMode' and playerID in stupidPlayersIds:
+            continue
+
         print("Gracz nr", playerID)  # [debug]
 
         # if GPIO.input(sensorPins[playerID - 1]) == GPIO.HIGH:
@@ -122,8 +132,10 @@ def pourDrinks(stupidPlayersIds):
 
         pumpDrink(playerID)
         time.sleep(2)
-        
-    if len(stupidPlayersIds) != 0: 
+    
+    if game_mode == 'looserMode' and len(stupidPlayersIds) != 0:
+        servoGoToAngle(0)
+    if game_mode == 'winnerMode' and len(stupidPlayersIds) != len(players):
         servoGoToAngle(0)
     emit('drinks_poured', broadcast=True)
 
@@ -183,12 +195,14 @@ def handle_join(data):
 """ clears data from previous game and starts a new one"""
 @socketio.on('start_game')
 def handle_start_game(data=None):
-    global game_started, current_question_index, question_limit
+    global game_started, current_question_index, question_limit, game_mode
     print(f"[DEBUG] start_game called with data={data}")  # DEBUG
     if not game_started:
         # Get num_rounds from data if provided, otherwise use default
         if data and 'numRounds' in data:
             question_limit = int(data['numRounds'])
+        if data and 'gameMode' in data:
+            game_mode = data['gameMode']
         print(f"[DEBUG] question_limit set to {question_limit}")  # DEBUG
         current_question_index = 0
         for player in players:

@@ -19,5 +19,8 @@
     "readyToReplay": "Ready for a replay?",
     "newGame": "New Game",
     "loadingQuestion": "Loading question...",
-    "waitingForOthers": "Waiting for other players..."
+    "waitingForOthers": "Waiting for other players...",
+    "gameMode": "Game mode",
+    "looserMode": "Looser drinks",
+    "winnerMode": "Winner drinks"
 }

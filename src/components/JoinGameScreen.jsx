@@ -49,7 +49,7 @@ export const JoinGameScreen = () => {
         <label for="language-switch" class="text-slate-600 text-sm cursor-pointer">Polski</label>
       
         <div class="relative inline-block w-11 h-5">
-          <input id="language-switch" type="checkbox" onChange={(e) => i18n.changeLanguage(e.target.checked ? 'en' : 'pl')} class="peer appearance-none w-11 h-5 bg-lime-700 rounded-full checked:bg-lime-900 cursor-pointer transition-colors duration-300" />
+          <input id="language-switch" type="checkbox" checked={i18n.resolvedLanguage === 'en'} onChange={(e) => i18n.changeLanguage(e.target.checked ? 'en' : 'pl')} class="peer appearance-none w-11 h-5 bg-lime-700 rounded-full checked:bg-lime-900 cursor-pointer transition-colors duration-300" />
           <label for="language-switch" class="absolute top-0 left-0 w-5 h-5 bg-white rounded-full border border-lime-750 shadow-sm transition-transform duration-300 peer-checked:translate-x-6 peer-checked:border-lime-950 cursor-pointer">
           </label>
         </div>

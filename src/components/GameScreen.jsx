@@ -1,14 +1,16 @@
 import { useGame } from '../context/GameContext';
+import { useTranslation } from "react-i18next";
 
 export const GameScreen = () => {
   const { currentQuestion, submitAnswer, answered, numRounds } = useGame();
+  const { t } = useTranslation();
 
   if (!currentQuestion) {
     return (
       <div className="min-h-screen w-full flex flex-col justify-center items-center p-4 sm:p-6 md:p-8 relative overflow-hidden bg-[url(/static/background.png)] lg:bg-[url(/static/wide-background.png)] bg-cover bg-center bg-scroll">
         <div className="text-center">
           <div className="animate-spin rounded-full h-16 w-16 border-4 border-lime-900 border-t-lime-600 mx-auto mb-4"></div>
-          <p className="text-green-800 text-2xl font-bold">Ładowanie pytania...</p>
+          <p className="text-green-800 text-2xl font-bold">{t('loadingQuestion')}</p>
         </div>
       </div>
     );
@@ -46,7 +48,7 @@ export const GameScreen = () => {
             {answered ? (
               <div className="flex flex-col items-center justify-center py-16">
                 <div className="animate-spin rounded-full h-16 w-16 border-4 border-lime-900 border-t-lime-600 mb-6"></div>
-                <p className="text-xl font-bold text-lime-700 text-center">Oczekiwanie na pozostałych graczy...</p>
+                <p className="text-xl font-bold text-lime-700 text-center">{t('waitingForOthers')}</p>
               </div>
             ) : (
               currentQuestion.options.map((option, index) => {
@@ -54,13 +56,13 @@ export const GameScreen = () => {
                 return (
                   <button
                     key={index}
-                    onClick={() => submitAnswer(option)}
+                    onClick={() => submitAnswer(option.id)}
                     className="w-full bg-stone-100 hover:bg-lime-50 border-2 border-lime-900 text-lime-700 rounded-full p-5 text-left text-lg transition transform hover:scale-102 active:scale-95 cursor-pointer shadow-md hover:shadow-lg duration-200 flex items-center gap-5 font-montserrat"
                   >
                     <span className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-lime-700 flex items-center justify-center font-bold text-white text-lg font-corben">
                       {letters[index]}
                     </span>
-                    <span className="flex-1">{option}</span>
+                    <span className="flex-1">{option.text}</span>
                   </button>
                 );
               })

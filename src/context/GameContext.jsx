@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { io } from 'socket.io-client';
+import i18next from 'i18next';
 
 const GameContext = createContext();
 
@@ -105,7 +106,7 @@ export const GameProvider = ({ children }) => {
 
   const joinGame = useCallback((username) => {
     if (socket && username.trim() !== '') {
-      socket.emit('join', { username });
+      socket.emit('join', { username, language: i18next.resolvedLanguage });
     }
   }, [socket]);
 

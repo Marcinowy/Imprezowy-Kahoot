@@ -161,7 +161,13 @@ def handle_join(data):
         else:
             player_id = len(players) + 1
 
-        player = {'id': player_id, 'username': username, 'score': 0, 'sid': player_sid}
+        player = {
+            'id': player_id, 
+            'username': username, 
+            'score': 0, 
+            'sid': player_sid,
+            'language': data['language']
+        }
         players.append(player)
 
         print(players)
@@ -234,36 +240,41 @@ def handle_disconnect():
 """ handles answer from single player"""
 @socketio.on('answer')
 def handle_answer(data):
-    print("player answered")
-    print(data)
     player_id = data['player_id']
-    answer = data['answer']
+    selected_option_id = data['answer']
+    current_question = questions[current_question_index]
+    correct_option_id = current_question['correct_option_id']
 
-    """ Check if the player has already answered for the current question"""
     if player_id not in players_answered:
         players_answered.append(player_id)
 
-        correct_answer = questions[current_question_index]['correct_answer']
-
-        if answer == correct_answer:
+        if selected_option_id == correct_option_id:
             for player in players:
                 if player['id'] == player_id:
                     player['score'] += 1
                     break
-        # [Jakub] else player['id'] dodać do pijących
         else:
             players_answered_wrong.append(player_id)
 
+        print(f"[DEBUG] Player {player_id} answered. Correct: {selected_option_id == correct_option_id}. Players answered: {players_answered}. Players answered wrong: {players_answered_wrong}")  # DEBUG
         emit('update_players', {'players': players}, broadcast=True)
 
         """ Check if all players have answered"""
         if len(players_answered) == len(players):
-            if current_question_index != question_limit - 1:
-                print("all players answered, next question coming up")  # [debug]
-                emit('all_players_answered', {'correctAnswer': correct_answer}, broadcast=True)
-            else:
-                print("all players answered, game over coming up")  # [debug]
-                emit('game_over', {'players': players, 'correctAnswer': correct_answer}, broadcast=True)
+            for p in players:
+                p_lang = p.get('language', 'pl')
+                p_options = current_question['translations'][p_lang]['options']
+                
+                p_correct_option = next((opt for opt in p_options if opt['id'] == correct_option_id), None)
+                p_correct_text = p_correct_option['text'] if p_correct_option else "???"
+
+                payload = {'correctAnswer': p_correct_text}
+
+                if current_question_index != question_limit - 1:
+                    emit('all_players_answered', payload, room=p['sid'])
+                else:
+                    payload['players'] = players
+                    emit('game_over', payload, room=p['sid'])
             pourDrinks(players_answered_wrong)
 
 """ handles request for next question"""
@@ -277,9 +288,16 @@ def emit_question():
     print(f"[DEBUG] emit_question called, index={current_question_index}, total questions={len(questions)}")  # DEBUG
     if current_question_index < len(questions):
         question_data = questions[current_question_index]
-        print(f"[DEBUG] Sending question: {question_data['question']}")  # DEBUG
-        emit('new_question', {'question': question_data['question'], 'options': question_data['options'],
-                              'number': (current_question_index + 1)}, broadcast=True)
+        for player in players:
+            lang = player.get('language', 'pl')
+            
+            translation = question_data['translations'].get(lang, question_data['translations']['pl'])
+            
+            emit('new_question', {
+                'question': translation['question'],
+                'options': translation['options'],
+                'number': (current_question_index + 1)
+            }, room=player['sid'])
     else:
         print(f"[ERROR] Question index {current_question_index} out of range!")  # DEBUG
 

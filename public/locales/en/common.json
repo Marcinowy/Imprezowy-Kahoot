@@ -13,5 +13,11 @@
     "points": "pts",
     "nextQuestion": "Next question",
     "pouringWarning": "Wait for the vodka before starting the next round!",
-    "nextQuestionExplanation": "Click to continue the game!"
+    "nextQuestionExplanation": "Click to continue the game!",
+    "gameOver": "GAME OVER",
+    "congratulations": "Congratulations to all participants!",
+    "readyToReplay": "Ready for a replay?",
+    "newGame": "New Game",
+    "loadingQuestion": "Loading question...",
+    "waitingForOthers": "Waiting for other players..."
 }

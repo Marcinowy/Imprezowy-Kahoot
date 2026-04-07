@@ -13,5 +13,11 @@
     "points": "pkt",
     "nextQuestion": "Następne pytanie",
     "pouringWarning": "Poczekajcie na wódkę zanim zaczniecie kolejną rundę!",
-    "nextQuestionExplanation": "Kliknij aby kontynuować grę!"
+    "nextQuestionExplanation": "Kliknij aby kontynuować grę!",
+    "gameOver": "KONIEC GRY",
+    "congratulations": "Gratulujemy wszystkim uczestnikom!",
+    "readyToReplay": "Gotowy na powtórkę?",
+    "newGame": "Nowa gra",
+    "loadingQuestion": "Ładowanie pytania...",
+    "waitingForOthers": "Czekamy na innych graczy..."
 }

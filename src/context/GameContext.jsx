@@ -59,6 +59,7 @@ export const GameProvider = ({ children }) => {
     socketIo.on('game_started', (data) => {
       setWrongPlayerIds([]);
       setNumRounds(data.numRounds);
+      setGameMode(data.gameMode);
       setGameStarted(true);
       setCurrentScreen('game');
     });
@@ -114,8 +115,6 @@ export const GameProvider = ({ children }) => {
   }, [socket]);
 
   const startGame = (rounds, mode) => {
-    console.log('[DEBUG] startGame called with rounds=', rounds, 'mode=', mode);  // DEBUG
-    setGameMode(mode);
     socket.emit('start_game', { numRounds: rounds, gameMode: mode });
   };
 

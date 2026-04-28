@@ -64,6 +64,9 @@ game_started = False
 """Store the current question index"""
 current_question_index = 0
 
+""" Store the current game mode"""
+game_mode = 'looserMode'  # default game mode, can be 'looserMode' or 'winnerMode'
+
 
 """function to set servo at a given angle"""
 def servoGoToAngle(angle):
@@ -104,8 +107,15 @@ def pumpDrink(playerID):
 
 """function for handling penalty for bad answers"""
 def pourDrinks(stupidPlayersIds):
-    
-    for playerID in stupidPlayersIds:
+    global game_mode
+    for player in players:
+        playerID = player['id']
+
+        if game_mode == 'looserMode' and playerID not in stupidPlayersIds:
+            continue
+        if game_mode == 'winnerMode' and playerID in stupidPlayersIds:
+            continue
+
         print("Gracz nr", playerID)  # [debug]
 
         if GPIO.input(sensorPins[playerID - 1]) == GPIO.HIGH:
@@ -122,9 +132,12 @@ def pourDrinks(stupidPlayersIds):
 
         pumpDrink(playerID)
         time.sleep(2)
-        
-    if len(stupidPlayersIds) != 0: 
+    
+    if game_mode == 'looserMode' and len(stupidPlayersIds) != 0:
         servoGoToAngle(0)
+    if game_mode == 'winnerMode' and len(stupidPlayersIds) != len(players):
+        servoGoToAngle(0)
+    emit('drinks_poured', broadcast=True)
 
 
 @app.route('/')
@@ -160,7 +173,13 @@ def handle_join(data):
         else:
             player_id = len(players) + 1
 
-        player = {'id': player_id, 'username': username, 'score': 0, 'sid': player_sid}
+        player = {
+            'id': player_id, 
+            'username': username, 
+            'score': 0, 
+            'sid': player_sid,
+            'language': data['language']
+        }
         players.append(player)
 
         print(players)
@@ -176,19 +195,28 @@ def handle_join(data):
 """ clears data from previous game and starts a new one"""
 @socketio.on('start_game')
 def handle_start_game(data=None):
-    global game_started, current_question_index, question_limit
+    global game_started, current_question_index, question_limit, game_mode
+    print(f"[DEBUG] start_game called with data={data}")  # DEBUG
     if not game_started:
         # Get num_rounds from data if provided, otherwise use default
-        if data and 'num_rounds' in data:
-            question_limit = int(data['num_rounds'])
+        if data and 'numRounds' in data:
+            question_limit = int(data['numRounds'])
+        if data and 'gameMode' in data:
+            game_mode = data['gameMode']
+        print(f"[DEBUG] question_limit set to {question_limit}")  # DEBUG
         current_question_index = 0
         for player in players:
             player['score'] = 0
         emit('update_players', {'players': players}, broadcast=True)
-        emit('game_started', broadcast=True)
+        emit('game_started', {'numRounds': question_limit, 'gameMode': game_mode}, broadcast=True)
         game_started = True
+        print(f"[DEBUG] Calling shuffle_questions, total questions: {len(questions)}")  # DEBUG
         shuffle_questions()
+        print(f"[DEBUG] About to emit_question")  # DEBUG
         emit_question()
+        print(f"[DEBUG] Question emitted")  # DEBUG
+    else:
+        print("[DEBUG] Game already started, ignoring start_game call")  # DEBUG
 
 
 """ makes sure that disconnecting doesn't break a game"""
@@ -226,44 +254,69 @@ def handle_disconnect():
 """ handles answer from single player"""
 @socketio.on('answer')
 def handle_answer(data):
-    print("player answered")
-    print(data)
     player_id = data['player_id']
-    answer = data['answer']
+    selected_option_id = data['answer']
+    current_question = questions[current_question_index]
+    correct_option_id = current_question['correct_option_id']
 
-    """ Check if the player has already answered for the current question"""
     if player_id not in players_answered:
         players_answered.append(player_id)
 
-        correct_answer = questions[current_question_index]['correct_answer']
-
-        if answer == correct_answer:
+        if selected_option_id == correct_option_id:
             for player in players:
                 if player['id'] == player_id:
                     player['score'] += 1
                     break
-        # [Jakub] else player['id'] dodać do pijących
         else:
             players_answered_wrong.append(player_id)
 
+        print(f"[DEBUG] Player {player_id} answered. Correct: {selected_option_id == correct_option_id}. Players answered: {players_answered}. Players answered wrong: {players_answered_wrong}")  # DEBUG
         emit('update_players', {'players': players}, broadcast=True)
 
         """ Check if all players have answered"""
         if len(players_answered) == len(players):
-            if current_question_index != question_limit - 1:
-                emit('all_players_answered', broadcast=True)
+            for p in players:
+                p_lang = p.get('language', 'pl')
+                p_options = current_question['translations'][p_lang]['options']
                 
-            # [Jakub] dodać włączenie nalewania w tym miejscu
+                p_correct_option = next((opt for opt in p_options if opt['id'] == correct_option_id), None)
+                p_correct_text = p_correct_option['text'] if p_correct_option else "???"
+
+                payload = {
+                    'correctAnswer': p_correct_text,
+                    'wrongPlayerIds': players_answered_wrong
+        }
+
+                if current_question_index != question_limit - 1:
+                    emit('all_players_answered', payload, room=p['sid'])
+                else:
+                    payload['players'] = players
+                    emit('game_over', payload, room=p['sid'])
             pourDrinks(players_answered_wrong)
 
-            handle_next_question()
+""" handles request for next question"""
+@socketio.on('next_question')
+def next_question():
+    handle_next_question()
 
 
 """sends question to all players"""
 def emit_question():
-    question_data = questions[current_question_index]
-    emit('new_question', {'question': question_data['question'], 'options': question_data['options'],
-                          'number': (current_question_index + 1)}, broadcast=True)
+    print(f"[DEBUG] emit_question called, index={current_question_index}, total questions={len(questions)}")  # DEBUG
+    if current_question_index < len(questions):
+        question_data = questions[current_question_index]
+        for player in players:
+            lang = player.get('language', 'pl')
+            
+            translation = question_data['translations'].get(lang, question_data['translations']['pl'])
+            
+            emit('new_question', {
+                'question': translation['question'],
+                'options': translation['options'],
+                'number': (current_question_index + 1)
+            }, room=player['sid'])
+    else:
+        print(f"[ERROR] Question index {current_question_index} out of range!")  # DEBUG
 
 
 def shuffle_questions():

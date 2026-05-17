@@ -70,7 +70,7 @@ game_mode = 'looserMode'  # default game mode, can be 'looserMode' or 'winnerMod
 
 """function to set servo at a given angle"""
 def servoGoToAngle(angle):
-    d0, d180 = 500, 2500
+    d0, d180 = 600, 2400
     pulse = int(d0 + (d180 - d0) * (angle / 180))
     print(f"Servo ON, setting angle: {angle}, pulse: {pulse}")
 

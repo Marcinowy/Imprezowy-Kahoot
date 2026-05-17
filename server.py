@@ -72,23 +72,21 @@ game_mode = 'looserMode'  # default game mode, can be 'looserMode' or 'winnerMod
 def servoGoToAngle(angle):
     d0, d180 = 500, 2500
     pulse = int(d0 + (d180 - d0) * (angle / 180))
+    print(f"Servo ON, setting angle: {angle}, pulse: {pulse}")
 
-    print("servo on")  # [debug]
+
     servo.set_servo_pulsewidth(servoSignalPin, pulse)
-    time.sleep(0.05)
+    time.sleep(0.1)
 
     GPIO.output(servoPowerPIn, GPIO.LOW)
 
-    print("Servo: setting angle:", angle, pulse)  # [debug]
 
     time.sleep(1)
-    servo.set_PWM_dutycycle(servoSignalPin, 0)
-    servo.set_PWM_frequency(servoSignalPin, 0)
-    time.sleep(0.2)
-
     GPIO.output(servoPowerPIn, GPIO.HIGH)
     print("servo off")  # [debug]
-    time.sleep(.1)
+    time.sleep(0.2)
+
+    servo.set_servo_pulsewidth(servoSignalPin, 0)
 
 
 """ function to turn on a pump for a fixed time """

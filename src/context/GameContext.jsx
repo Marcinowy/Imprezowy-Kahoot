@@ -23,7 +23,7 @@ export const GameProvider = ({ children }) => {
   const [gameMode, setGameMode] = useState('looserMode');
 
   useEffect(() => {
-    const socketIo = io('http://' + window.location.hostname + ':5500', {
+    const socketIo = io('192.168.1.30:5500', {
       transports: ['websocket', 'polling']
     });
 

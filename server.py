@@ -73,12 +73,14 @@ def servoGoToAngle(angle):
     d0, d180 = 500, 2500
     pulse = int(d0 + (d180 - d0) * (angle / 180))
 
-    GPIO.output(servoPowerPIn, GPIO.LOW)
     print("servo on")  # [debug]
-    time.sleep(.2)
-
     servo.set_servo_pulsewidth(servoSignalPin, pulse)
+    time.sleep(0.05)
+
+    GPIO.output(servoPowerPIn, GPIO.LOW)
+
     print("Servo: setting angle:", angle, pulse)  # [debug]
+
     time.sleep(1)
     servo.set_PWM_dutycycle(servoSignalPin, 0)
     servo.set_PWM_frequency(servoSignalPin, 0)

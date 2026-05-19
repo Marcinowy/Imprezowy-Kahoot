@@ -15,7 +15,7 @@ export const LobbyScreen = () => {
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col justify-center items-center p-4 sm:p-6 md:p-8 relative overflow-hidden bg-[url(/static/background.png)] lg:bg-[url(/static/wide-background.png)] bg-cover bg-center bg-scroll">
+    <div className="min-h-screen w-full flex flex-col justify-center items-center p-4 sm:p-6 md:p-8 relative overflow-hidden bg-[url(/static/background.webp)] lg:bg-[url(/static/wide-background.webp)] bg-cover bg-center bg-scroll">
       <div className="w-full max-w-3xl relative z-10">
         <div className="bg-white/85 backdrop-blur-sm rounded-3xl shadow-xl p-4 md:p-6 space-y-2">
           <div className="text-center m-4">

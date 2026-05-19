@@ -14,7 +14,7 @@ export const JoinGameScreen = () => {
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col justify-center items-center p-4 sm:p-6 md:p-8 relative overflow-hidden bg-[url(/static/background.png)] lg:bg-[url(/static/wide-background.png)] bg-cover bg-center">
+    <div className="min-h-screen w-full flex flex-col justify-center items-center p-4 sm:p-6 md:p-8 relative overflow-hidden bg-[url(/static/background.webp)] lg:bg-[url(/static/wide-background.webp)] bg-cover bg-center">
       <div className="w-full max-w-3xl">
         <div className="text-center m-8 font-corben">
           <h1 className="font-bold text-green-950 text-3xl mb-2">

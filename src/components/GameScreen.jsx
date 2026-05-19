@@ -7,7 +7,7 @@ export const GameScreen = () => {
 
   if (!currentQuestion) {
     return (
-      <div className="min-h-screen w-full flex flex-col justify-center items-center p-4 sm:p-6 md:p-8 relative overflow-hidden bg-[url(/static/background.png)] lg:bg-[url(/static/wide-background.png)] bg-cover bg-center bg-scroll">
+      <div className="min-h-screen w-full flex flex-col justify-center items-center p-4 sm:p-6 md:p-8 relative overflow-hidden bg-[url(/static/background.webp)] lg:bg-[url(/static/wide-background.webp)] bg-cover bg-center bg-scroll">
         <div className="text-center">
           <div className="animate-spin rounded-full h-16 w-16 border-4 border-lime-900 border-t-lime-600 mx-auto mb-4"></div>
           <p className="text-green-800 text-2xl font-bold">{t('loadingQuestion')}</p>
@@ -17,7 +17,7 @@ export const GameScreen = () => {
   }
 
   return (
-    <div className="min-h-screen w-full flex flex-col justify-center items-center p-4 sm:p-6 md:p-8 relative overflow-hidden bg-[url(/static/background.png)] lg:bg-[url(/static/wide-background.png)] bg-cover bg-center bg-scroll">
+    <div className="min-h-screen w-full flex flex-col justify-center items-center p-4 sm:p-6 md:p-8 relative overflow-hidden bg-[url(/static/background.webp)] lg:bg-[url(/static/wide-background.webp)] bg-cover bg-center bg-scroll">
       <div className="w-full max-w-4xl relative z-10">
         {/* Question Navigation */}
         <div className="text-center mb-2">

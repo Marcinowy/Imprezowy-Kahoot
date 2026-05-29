@@ -23,6 +23,6 @@
     "gameMode": "Tryb gry",
     "looserMode": "Pije przegrany",
     "winnerMode": "Pije zwycięzca",
-    "noGlass": "dał kieliszka!",
-    "waitingForGlass": "Poczekaj aż gracz da kieliszka"
+    "noGlass": "nie dał_a kieliszka!",
+    "waitingForGlass": "Poczekaj aż gracz podstawi kieliszek"
 }

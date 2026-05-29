@@ -22,5 +22,7 @@
     "waitingForOthers": "Czekamy na innych graczy...",
     "gameMode": "Tryb gry",
     "looserMode": "Pije przegrany",
-    "winnerMode": "Pije zwycięzca"
+    "winnerMode": "Pije zwycięzca",
+    "noGlass": "dał kieliszka!",
+    "waitingForGlass": "Poczekaj aż gracz da kieliszka"
 }

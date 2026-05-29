@@ -21,9 +21,10 @@ export const GameProvider = ({ children }) => {
   const [language, setLanguage] = useState('pl'); 
   const [wrongPlayerIds, setWrongPlayerIds] = useState([]);
   const [gameMode, setGameMode] = useState('looserMode');
+  const [playerWithoutGlass, setPlayerWithoutGlass] = useState({username: '', id: null});
 
   useEffect(() => {
-    const socketIo = io('192.168.1.30:5500', {
+    const socketIo = io('192.168.1.9:5500', {
       transports: ['websocket', 'polling']
     });
 
@@ -93,8 +94,13 @@ export const GameProvider = ({ children }) => {
     });
 
     socketIo.on('didnt_drink', (data) => {
-      if (joined) {
-      }
+      console.log('[DEBUG] Received didnt_drink:', data);  // DEBUG
+      setPlayerWithoutGlass(data);
+      console.log('[DEBUG] Updated playerWithoutGlass:', playerWithoutGlass);  // DEBUG
+    });
+
+    socketIo.on('glass_provided', (data) => {
+      setPlayerWithoutGlass(null);
     });
 
     socketIo.on('drinks_poured', () => {
@@ -153,7 +159,9 @@ export const GameProvider = ({ children }) => {
     language,
     setLanguage,
     wrongPlayerIds,
-    gameMode
+    gameMode,
+    playerWithoutGlass,
+    setPlayerWithoutGlass
   };
 
   return (

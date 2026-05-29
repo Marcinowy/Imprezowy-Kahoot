@@ -49,24 +49,24 @@ questions = [
     },
     {   
         "id": "q_003",
-        "correct_option_id": "opt_3",
+        "correct_option_id": "opt_1",
         "translations": {
             "pl": {
-                "question": "Gdzie pojedziemy na miesiąc miodowy?",
+                "question": "Co tradycyjnie symbolizuje welon panny młodej w wielu kulturach?",
                 "options": [
-                    {"id": "opt_1", "text": "CHINYYYY"},
-                    {"id": "opt_2", "text": "Madera"},
-                    {"id": "opt_3", "text": "Europejski roaoadtrip"},
-                    {"id": "opt_4", "text": "Szkocja"}
+                    {"id": "opt_1", "text": "Czystość, skromność i ochronę przed złem"},
+                    {"id": "opt_2", "text": "Bogactwo rodziny"},
+                    {"id": "opt_3", "text": "Całkowite poddanie mężowi"},
+                    {"id": "opt_4", "text": "Wysoki status społeczny"}
                 ]
             },
             "en": {
-                "question": "Where will we go for our honeymoon?",
+                "question": "What does the bride's veil traditionally symbolize in many cultures?",
                 "options": [
-                    {"id": "opt_1", "text": "CHINAAAA"},
-                    {"id": "opt_2", "text": "Madeira"},
-                    {"id": "opt_3", "text": "European road trip"},
-                    {"id": "opt_4", "text": "Scotland"}
+                    {"id": "opt_1", "text": "Purity, modesty, and protection from evil"},
+                    {"id": "opt_2", "text": "The family's wealth"},
+                    {"id": "opt_3", "text": "Total submission to the husband"},
+                    {"id": "opt_4", "text": "High social status"}
                 ]
             }
         }
@@ -127,8 +127,8 @@ questions = [
                 "question": "Ten gość przyjechał z najdalej:",
                 "options": [
                     {"id": "opt_1", "text": "Kuba"},
-                    {"id": "opt_2", "text": "Sepp"},
-                    {"id": "opt_3", "text": "Aga Mańke"},
+                    {"id": "opt_2", "text": "Wujek Andrzej"},
+                    {"id": "opt_3", "text": "Adam Reiter"},
                     {"id": "opt_4", "text": "Marvin"}
                 ]
             },
@@ -136,8 +136,8 @@ questions = [
                 "question": "This guest came from the furthest place:",
                 "options": [
                     {"id": "opt_1", "text": "Kuba"},
-                    {"id": "opt_2", "text": "Sepp"},
-                    {"id": "opt_3", "text": "Aga Mańke"},
+                    {"id": "opt_2", "text": "Uncle Andrzej"},
+                    {"id": "opt_3", "text": "Adam Reiter"},
                     {"id": "opt_4", "text": "Marvin"}
                 ]
             }
@@ -961,24 +961,24 @@ questions = [
     },
     {
         "id": "q_041",
-        "correct_option_id": "opt_4",
+        "correct_option_id": "opt_2",
         "translations": {
             "pl": {
-                "question": "Kiedy świadkowa Nadia dostanie pierścionek od swojego chłopaka?",
+                "question": "Gdzie Jim i Pam z amerykańskiego serialu 'The Office' wzięli ślub?",
                 "options": [
-                    {"id": "opt_1", "text": "W tym roku"},
-                    {"id": "opt_2", "text": "Już niedługo"},
-                    {"id": "opt_3", "text": "Może w te wakacje"},
-                    {"id": "opt_4", "text": "Wszystkie odpowiedzi są poprawne (to znak, Filip)"}
+                    {"id": "opt_1", "text": "W biurze Dunder Mifflin"},
+                    {"id": "opt_2", "text": "Nad Wodospadem Niagara"},
+                    {"id": "opt_3", "text": "W Nowym Jorku"},
+                    {"id": "opt_4", "text": "Na plaży w Miami"}
                 ]
             },
             "en": {
-                "question": "When will Nadia, the witness, get proposed to?",
+                "question": "Where did Jim and Pam from the US series 'The Office' get married?",
                 "options": [
-                    {"id": "opt_1", "text": "This year"},
-                    {"id": "opt_2", "text": "Soon"},
-                    {"id": "opt_3", "text": "Maybe during these holidays"},
-                    {"id": "opt_4", "text": "All answers are correct (it's a sign, Filip)"}
+                    {"id": "opt_1", "text": "In the Dunder Mifflin office"},
+                    {"id": "opt_2", "text": "At Niagara Falls"},
+                    {"id": "opt_3", "text": "In New York"},
+                    {"id": "opt_4", "text": "On a beach in Miami"}
                 ]
             }
         }
@@ -992,7 +992,7 @@ questions = [
                 "options": [
                     {"id": "opt_1", "text": "Długi Mati"},
                     {"id": "opt_2", "text": "Piggy"},
-                    {"id": "opt_3", "text": "Frajer"},
+                    {"id": "opt_3", "text": "Ned"},
                     {"id": "opt_4", "text": "Matix"}
                 ]
             },
@@ -1001,7 +1001,7 @@ questions = [
                 "options": [
                     {"id": "opt_1", "text": "Long Mati"},
                     {"id": "opt_2", "text": "Piggy"},
-                    {"id": "opt_3", "text": "Looser"},
+                    {"id": "opt_3", "text": "Ned"},
                     {"id": "opt_4", "text": "Matix"}
                 ]
             }
@@ -1201,7 +1201,7 @@ questions = [
     },
     {
         "id": "q_051",
-        "correct_option_id": "opt_3",
+        "correct_option_id": "opt_1",
         "translations": {
             "pl": {
                 "question": "Ile łącznie narodowości reprezentują obecni goście?",
@@ -1252,7 +1252,7 @@ questions = [
         "correct_option_id": "opt_3",
         "translations": {
             "pl": {
-                "question": "Ile osób na sali nosi to samo nazwisko co Mateusz?",
+                "question": "Ile osób na sali ma na nazwisko Brzóska?",
                 "options": [
                     {"id": "opt_1", "text": "2"},
                     {"id": "opt_2", "text": "4"},
@@ -1261,7 +1261,7 @@ questions = [
                 ]
             },
             "en": {
-                "question": "How many people have the same surname as Mateusz here?",
+                "question": "How many people have the surname Brzóska here?",
                 "options": [
                     {"id": "opt_1", "text": "2"},
                     {"id": "opt_2", "text": "4"},
@@ -1273,24 +1273,24 @@ questions = [
     },
     {
         "id": "q_054",
-        "correct_option_id": "opt_1",
+        "correct_option_id": "opt_4",
         "translations": {
             "pl": {
-                "question": "Kto z gości dowiedział się jako pierwszy o zaręczynach?",
+                "question": "Z kim ostatecznie wiąże się Elizabeth Bennet w kultowej powieści Jane Austen 'Duma i uprzedzenie'?",
                 "options": [
-                    {"id": "opt_1", "text": "Aga Mańke"},
-                    {"id": "opt_2", "text": "Nadia Plenzler"},
-                    {"id": "opt_3", "text": "Rodzice Leny"},
-                    {"id": "opt_4", "text": "Rodzice Mateusza"}
+                    {"id": "opt_1", "text": "Z panem Bingleyem"},
+                    {"id": "opt_2", "text": "Z panem Wickhamem"},
+                    {"id": "opt_3", "text": "Z panem Collinsem"},
+                    {"id": "opt_4", "text": "Z panem Darcym"}
                 ]
             },
             "en": {
-                "question": "Who among the guests was the first to find out about the engagement?",
+                "question": "Who does Elizabeth Bennet ultimately end up with in Jane Austen's iconic novel 'Pride and Prejudice'?",
                 "options": [
-                    {"id": "opt_1", "text": "Aga Mańke"},
-                    {"id": "opt_2", "text": "Nadia Plenzler"},
-                    {"id": "opt_3", "text": "Lena's parents"},
-                    {"id": "opt_4", "text": "Mateusz's parents"}
+                    {"id": "opt_1", "text": "Mr. Bingley"},
+                    {"id": "opt_2", "text": "Mr. Wickham"},
+                    {"id": "opt_3", "text": "Mr. Collins"},
+                    {"id": "opt_4", "text": "Mr. Darcy"}
                 ]
             }
         }
@@ -1372,7 +1372,7 @@ questions = [
         "correct_option_id": "opt_2",
         "translations": {
             "pl": {
-                "question": "Największe jezioro w okoliczach Lutomia pod względem powierzchni to:",
+                "question": "Największe jezioro w okolicach Lutomia pod względem powierzchni to:",
                 "options": [
                     {"id": "opt_1", "text": "Barding"},
                     {"id": "opt_2", "text": "Lutomskie"},
@@ -1425,7 +1425,7 @@ questions = [
                     {"id": "opt_1", "text": "Karkonosze"},
                     {"id": "opt_2", "text": "Tatry"},
                     {"id": "opt_3", "text": "Bieszczady"},
-                    {"id": "opt_4", "text": "Odrzańskie"}
+                    {"id": "opt_4", "text": "Beskidy"}
                 ]
             },
             "en": {
@@ -1726,12 +1726,581 @@ questions = [
                 ]
             }
         }
+    },
+    {
+        "id": "q_073",
+        "correct_option_id": "opt_3",
+        "translations": {
+            "pl": {
+                "question": "W starożytnym Rzymie miesiąc ten uważano za najszczęśliwszy do zawierania małżeństw (od imienia bogini). O jakim miesiącu mowa?",
+                "options": [
+                    {"id": "opt_1", "text": "Maj"},
+                    {"id": "opt_2", "text": "Wrzesień"},
+                    {"id": "opt_3", "text": "Czerwiec (od bogini Junony)"},
+                    {"id": "opt_4", "text": "Marzec"}
+                ]
+            },
+            "en": {
+                "question": "In Ancient Rome, this month was considered the luckiest for marriages (named after a goddess). Which month is it?",
+                "options": [
+                    {"id": "opt_1", "text": "May"},
+                    {"id": "opt_2", "text": "September"},
+                    {"id": "opt_3", "text": "June (from goddess Juno)"},
+                    {"id": "opt_4", "text": "March"}
+                ]
+            }
+        }
+    },
+    {
+        "id": "q_074",
+        "correct_option_id": "opt_3",
+        "translations": {
+            "pl": {
+                "question": "Która królowa zapoczątkowała modę na białe suknie ślubne?",
+                "options": [
+                    {"id": "opt_1", "text": "Maria Antonina"},
+                    {"id": "opt_2", "text": "Elżbieta I"},
+                    {"id": "opt_3", "text": "Wiktoria Hanowerska"},
+                    {"id": "opt_4", "text": "Katarzyna Wielka"}
+                ]
+            },
+            "en": {
+                "question": "Which queen started the trend of white wedding dresses?",
+                "options": [
+                    {"id": "opt_1", "text": "Marie Antoinette"},
+                    {"id": "opt_2", "text": "Elizabeth I"},
+                    {"id": "opt_3", "text": "Queen Victoria"},
+                    {"id": "opt_4", "text": "Catherine the Great"}
+                ]
+            }
+        }
+    },
+    {
+        "id": "q_075",
+        "correct_option_id": "opt_2",
+        "translations": {
+            "pl": {
+                "question": "Zgodnie z polskim przesądem, jaką literę powinien zawierać miesiąc ślubu?",
+                "options": [
+                    {"id": "opt_1", "text": "A"},
+                    {"id": "opt_2", "text": "R"},
+                    {"id": "opt_3", "text": "M"},
+                    {"id": "opt_4", "text": "S"}
+                ]
+            },
+            "en": {
+                "question": "According to Polish superstition, what letter should the wedding month contain?",
+                "options": [
+                    {"id": "opt_1", "text": "A"},
+                    {"id": "opt_2", "text": "R"},
+                    {"id": "opt_3", "text": "M"},
+                    {"id": "opt_4", "text": "S"}
+                ]
+            }
+        }
+    },
+    {
+        "id": "q_076",
+        "correct_option_id": "opt_4",
+        "translations": {
+            "pl": {
+                "question": "Co symbolizuje tradycyjne rzucanie ryżem w nowożeńców?",
+                "options": [
+                    {"id": "opt_1", "text": "Ochronę przed złymi duchami"},
+                    {"id": "opt_2", "text": "Długie życie"},
+                    {"id": "opt_3", "text": "Bogactwo materialne"},
+                    {"id": "opt_4", "text": "Płodność i obfitość"}
+                ]
+            },
+            "en": {
+                "question": "What does the traditional throwing of rice at newlyweds symbolize?",
+                "options": [
+                    {"id": "opt_1", "text": "Protection from evil spirits"},
+                    {"id": "opt_2", "text": "Long life"},
+                    {"id": "opt_3", "text": "Material wealth"},
+                    {"id": "opt_4", "text": "Fertility and abundance"}
+                ]
+            }
+        }
+    },
+    {
+        "id": "q_077",
+        "correct_option_id": "opt_1",
+        "translations": {
+            "pl": {
+                "question": "Jak w starożytności nazywano żyłę, która rzekomo łączyła palec serdeczny bezpośrednio z sercem?",
+                "options": [
+                    {"id": "opt_1", "text": "Vena amoris"},
+                    {"id": "opt_2", "text": "Vena cordis"},
+                    {"id": "opt_3", "text": "Arteria passionis"},
+                    {"id": "opt_4", "text": "Linea vitae"}
+                ]
+            },
+            "en": {
+                "question": "In antiquity, what was the vein called that supposedly connected the ring finger directly to the heart?",
+                "options": [
+                    {"id": "opt_1", "text": "Vena amoris"},
+                    {"id": "opt_2", "text": "Vena cordis"},
+                    {"id": "opt_3", "text": "Arteria passionis"},
+                    {"id": "opt_4", "text": "Linea vitae"}
+                ]
+            }
+        }
+    },
+    {
+        "id": "q_078",
+        "correct_option_id": "opt_2",
+        "translations": {
+            "pl": {
+                "question": "Jak nazywa się 25. rocznica ślubu?",
+                "options": [
+                    {"id": "opt_1", "text": "Perłowa"},
+                    {"id": "opt_2", "text": "Srebrna"},
+                    {"id": "opt_3", "text": "Złota"},
+                    {"id": "opt_4", "text": "Rubinowa"}
+                ]
+            },
+            "en": {
+                "question": "What is the 25th wedding anniversary called?",
+                "options": [
+                    {"id": "opt_1", "text": "Pearl"},
+                    {"id": "opt_2", "text": "Silver"},
+                    {"id": "opt_3", "text": "Gold"},
+                    {"id": "opt_4", "text": "Ruby"}
+                ]
+            }
+        }
+    },
+    {
+        "id": "q_079",
+        "correct_option_id": "opt_3",
+        "translations": {
+            "pl": {
+                "question": "Co według anglosaskiej tradycji panna młoda powinna mieć przy sobie na szczęście oprócz czegoś starego, nowego i pożyczonego?",
+                "options": [
+                    {"id": "opt_1", "text": "Coś czerwonego"},
+                    {"id": "opt_2", "text": "Coś złotego"},
+                    {"id": "opt_3", "text": "Coś niebieskiego"},
+                    {"id": "opt_4", "text": "Coś białego"}
+                ]
+            },
+            "en": {
+                "question": "According to Anglo-Saxon tradition, what should a bride have with her for good luck besides something old, new, and borrowed?",
+                "options": [
+                    {"id": "opt_1", "text": "Something red"},
+                    {"id": "opt_2", "text": "Something gold"},
+                    {"id": "opt_3", "text": "Something blue"},
+                    {"id": "opt_4", "text": "Something white"}
+                ]
+            }
+        }
+    },
+    {
+        "id": "q_080",
+        "correct_option_id": "opt_4",
+        "translations": {
+            "pl": {
+                "question": "Co oznacza okrzyk 'Gorzko, gorzko!' na polskim weselu?",
+                "options": [
+                    {"id": "opt_1", "text": "Jedzenie jest niesmaczne"},
+                    {"id": "opt_2", "text": "Goście domagają się więcej wódki"},
+                    {"id": "opt_3", "text": "Zakończenie oczepin"},
+                    {"id": "opt_4", "text": "Wezwanie nowożeńców do pocałunku"}
+                ]
+            },
+            "en": {
+                "question": "What does the shout 'Bitter, bitter!' (Gorzko, gorzko!) mean at a Polish wedding?",
+                "options": [
+                    {"id": "opt_1", "text": "The food is tasteless"},
+                    {"id": "opt_2", "text": "Guests are demanding more vodka"},
+                    {"id": "opt_3", "text": "The end of the veil-removal ceremony"},
+                    {"id": "opt_4", "text": "A call for the newlyweds to kiss"}
+                ]
+            }
+        }
+    },
+    {
+        "id": "q_081",
+        "correct_option_id": "opt_1",
+        "translations": {
+            "pl": {
+                "question": "Skąd wzięła się nazwa 'miesiąc miodowy'?",
+                "options": [
+                    {"id": "opt_1", "text": "Od picia miodu pitnego przez miesiąc po ślubie"},
+                    {"id": "opt_2", "text": "Od jedzenia ciast miodowych przez nowożeńców"},
+                    {"id": "opt_3", "text": "Od wyjazdów w rejony pełne pasiek"},
+                    {"id": "opt_4", "text": "Od rzymskiego boga miodu i słodyczy"}
+                ]
+            },
+            "en": {
+                "question": "Where does the term 'honeymoon' come from?",
+                "options": [
+                    {"id": "opt_1", "text": "From drinking mead for a month after the wedding"},
+                    {"id": "opt_2", "text": "From eating honey cakes by the newlyweds"},
+                    {"id": "opt_3", "text": "From traveling to regions full of apiaries"},
+                    {"id": "opt_4", "text": "From the Roman god of honey and sweetness"}
+                ]
+            }
+        }
+    },
+    {
+        "id": "q_082",
+        "correct_option_id": "opt_3",
+        "translations": {
+            "pl": {
+                "question": "Kto był greckim bogiem miłości?",
+                "options": [
+                    {"id": "opt_1", "text": "Apollo"},
+                    {"id": "opt_2", "text": "Ares"},
+                    {"id": "opt_3", "text": "Eros"},
+                    {"id": "opt_4", "text": "Hermes"}
+                ]
+            },
+            "en": {
+                "question": "Who was the Greek god of love?",
+                "options": [
+                    {"id": "opt_1", "text": "Apollo"},
+                    {"id": "opt_2", "text": "Ares"},
+                    {"id": "opt_3", "text": "Eros"},
+                    {"id": "opt_4", "text": "Hermes"}
+                ]
+            }
+        }
+    },
+    {
+        "id": "q_083",
+        "correct_option_id": "opt_2",
+        "translations": {
+            "pl": {
+                "question": "Co ma przynieść pan młody przenoszący pannę młodą przez próg?",
+                "options": [
+                    {"id": "opt_1", "text": "Bogactwo i szybki zakup domu"},
+                    {"id": "opt_2", "text": "Ochronę przed złymi duchami ukrytymi pod progiem"},
+                    {"id": "opt_3", "text": "Szacunek teściowej"},
+                    {"id": "opt_4", "text": "Gwarancję posiadania syna"}
+                ]
+            },
+            "en": {
+                "question": "What is the groom carrying the bride over the threshold supposed to bring?",
+                "options": [
+                    {"id": "opt_1", "text": "Wealth and a quick house purchase"},
+                    {"id": "opt_2", "text": "Protection from evil spirits hidden under the threshold"},
+                    {"id": "opt_3", "text": "Respect from the mother-in-law"},
+                    {"id": "opt_4", "text": "A guarantee of having a son"}
+                ]
+            }
+        }
+    },
+    {
+        "id": "q_084",
+        "correct_option_id": "opt_1",
+        "translations": {
+            "pl": {
+                "question": "Jak nazywa się tradycyjna polska zabawa o północy podczas wesela?",
+                "options": [
+                    {"id": "opt_1", "text": "Oczepiny"},
+                    {"id": "opt_2", "text": "Poprawiny"},
+                    {"id": "opt_3", "text": "Zrękowiny"},
+                    {"id": "opt_4", "text": "Polowiny"}
+                ]
+            },
+            "en": {
+                "question": "What is the traditional Polish midnight celebration during a wedding called?",
+                "options": [
+                    {"id": "opt_1", "text": "Oczepiny (Uncapping ceremony)"},
+                    {"id": "opt_2", "text": "Poprawiny (After-party)"},
+                    {"id": "opt_3", "text": "Zrękowiny (Betrothal)"},
+                    {"id": "opt_4", "text": "Polowiny (Mid-party)"}
+                ]
+            }
+        }
+    },
+    {
+        "id": "q_085",
+        "correct_option_id": "opt_4",
+        "translations": {
+            "pl": {
+                "question": "Jakie kamienie szlachetne najczęściej zdobią pierścionki zaręczynowe?",
+                "options": [
+                    {"id": "opt_1", "text": "Szmaragdy"},
+                    {"id": "opt_2", "text": "Rubiny"},
+                    {"id": "opt_3", "text": "Szafiry"},
+                    {"id": "opt_4", "text": "Diamenty"}
+                ]
+            },
+            "en": {
+                "question": "Which precious stones most commonly adorn engagement rings?",
+                "options": [
+                    {"id": "opt_1", "text": "Emeralds"},
+                    {"id": "opt_2", "text": "Rubies"},
+                    {"id": "opt_3", "text": "Sapphires"},
+                    {"id": "opt_4", "text": "Diamonds"}
+                ]
+            }
+        }
+    },
+    {
+        "id": "q_086",
+        "correct_option_id": "opt_2",
+        "translations": {
+            "pl": {
+                "question": "W jakim dniu, według tradycji irlandzkiej, kobieta może oświadczyć się mężczyźnie?",
+                "options": [
+                    {"id": "opt_1", "text": "14 lutego"},
+                    {"id": "opt_2", "text": "29 lutego"},
+                    {"id": "opt_3", "text": "1 kwietnia"},
+                    {"id": "opt_4", "text": "31 grudnia"}
+                ]
+            },
+            "en": {
+                "question": "On which day, according to Irish tradition, can a woman propose to a man?",
+                "options": [
+                    {"id": "opt_1", "text": "February 14th"},
+                    {"id": "opt_2", "text": "February 29th"},
+                    {"id": "opt_3", "text": "April 1st"},
+                    {"id": "opt_4", "text": "December 31st"}
+                ]
+            }
+        }
+    },
+    {
+        "id": "q_087",
+        "correct_option_id": "opt_1",
+        "translations": {
+            "pl": {
+                "question": "Co dawniej wplatano w wianek panny młodej w Polsce jako symbol niewinności?",
+                "options": [
+                    {"id": "opt_1", "text": "Rutę"},
+                    {"id": "opt_2", "text": "Rozmaryn"},
+                    {"id": "opt_3", "text": "Miętę"},
+                    {"id": "opt_4", "text": "Rumianek"}
+                ]
+            },
+            "en": {
+                "question": "What was formerly woven into a bride's wreath in Poland as a symbol of innocence?",
+                "options": [
+                    {"id": "opt_1", "text": "Rue"},
+                    {"id": "opt_2", "text": "Rosemary"},
+                    {"id": "opt_3", "text": "Mint"},
+                    {"id": "opt_4", "text": "Chamomile"}
+                ]
+            }
+        }
+    },
+    {
+        "id": "q_088",
+        "correct_option_id": "opt_3",
+        "translations": {
+            "pl": {
+                "question": "Z jakiego kraju pochodzi tradycja rozbijania talerzy w noc przed ślubem (Polterabend)?",
+                "options": [
+                    {"id": "opt_1", "text": "Z Francji"},
+                    {"id": "opt_2", "text": "Z Włoch"},
+                    {"id": "opt_3", "text": "Z Niemiec"},
+                    {"id": "opt_4", "text": "Z Hiszpanii"}
+                ]
+            },
+            "en": {
+                "question": "Which country does the tradition of smashing plates the night before the wedding (Polterabend) come from?",
+                "options": [
+                    {"id": "opt_1", "text": "France"},
+                    {"id": "opt_2", "text": "Italy"},
+                    {"id": "opt_3", "text": "Germany"},
+                    {"id": "opt_4", "text": "Spain"}
+                ]
+            }
+        }
+    },
+    {
+        "id": "q_089",
+        "correct_option_id": "opt_2",
+        "translations": {
+            "pl": {
+                "question": "Jak nazywa się rocznica obchodzona po 50 latach małżeństwa?",
+                "options": [
+                    {"id": "opt_1", "text": "Diamentowa"},
+                    {"id": "opt_2", "text": "Złota"},
+                    {"id": "opt_3", "text": "Platynowa"},
+                    {"id": "opt_4", "text": "Żelazna"}
+                ]
+            },
+            "en": {
+                "question": "What is the anniversary celebrated after 50 years of marriage called?",
+                "options": [
+                    {"id": "opt_1", "text": "Diamond"},
+                    {"id": "opt_2", "text": "Gold"},
+                    {"id": "opt_3", "text": "Platinum"},
+                    {"id": "opt_4", "text": "Iron"}
+                ]
+            }
+        }
+    },
+    {
+        "id": "q_090",
+        "correct_option_id": "opt_1",
+        "translations": {
+            "pl": {
+                "question": "W Indiach tradycyjny strój ślubny panny młodej jest najczęściej w kolorze:",
+                "options": [
+                    {"id": "opt_1", "text": "Czerwonym"},
+                    {"id": "opt_2", "text": "Białym"},
+                    {"id": "opt_3", "text": "Żółtym"},
+                    {"id": "opt_4", "text": "Różowym"}
+                ]
+            },
+            "en": {
+                "question": "In India, the traditional bridal wedding attire is most often:",
+                "options": [
+                    {"id": "opt_1", "text": "Red"},
+                    {"id": "opt_2", "text": "White"},
+                    {"id": "opt_3", "text": "Yellow"},
+                    {"id": "opt_4", "text": "Pink"}
+                ]
+            }
+        }
+    },
+    {
+        "id": "q_091",
+        "correct_option_id": "opt_4",
+        "translations": {
+            "pl": {
+                "question": "Czego symbolem są obrączki ślubne?",
+                "options": [
+                    {"id": "opt_1", "text": "Władzy i kontroli"},
+                    {"id": "opt_2", "text": "Bogactwa i statusu"},
+                    {"id": "opt_3", "text": "Niewinności i czystości"},
+                    {"id": "opt_4", "text": "Wieczności i nieskończonej miłości"}
+                ]
+            },
+            "en": {
+                "question": "What are wedding rings a symbol of?",
+                "options": [
+                    {"id": "opt_1", "text": "Power and control"},
+                    {"id": "opt_2", "text": "Wealth and status"},
+                    {"id": "opt_3", "text": "Innocence and purity"},
+                    {"id": "opt_4", "text": "Eternity and endless love"}
+                ]
+            }
+        }
+    },
+    {
+        "id": "q_092",
+        "correct_option_id": "opt_3",
+        "translations": {
+            "pl": {
+                "question": "Co oznacza znalezienie pająka na sukni ślubnej w angielskim folklorze?",
+                "options": [
+                    {"id": "opt_1", "text": "Nadchodzącą zdradę"},
+                    {"id": "opt_2", "text": "Finansową ruinę"},
+                    {"id": "opt_3", "text": "Dobrą wróżbę i szczęście"},
+                    {"id": "opt_4", "text": "Chorobę w rodzinie"}
+                ]
+            },
+            "en": {
+                "question": "What does finding a spider on a wedding dress mean in English folklore?",
+                "options": [
+                    {"id": "opt_1", "text": "Upcoming betrayal"},
+                    {"id": "opt_2", "text": "Financial ruin"},
+                    {"id": "opt_3", "text": "Good omen and luck"},
+                    {"id": "opt_4", "text": "Illness in the family"}
+                ]
+            }
+        }
+    },
+    {
+        "id": "q_093",
+        "correct_option_id": "opt_1",
+        "translations": {
+            "pl": {
+                "question": "Jakie kwiaty są uznawane za klasyczny symbol miłości i często wybierane na bukiety ślubne?",
+                "options": [
+                    {"id": "opt_1", "text": "Czerwone róże"},
+                    {"id": "opt_2", "text": "Chryzantemy"},
+                    {"id": "opt_3", "text": "Żółte tulipany"},
+                    {"id": "opt_4", "text": "Lilie"}
+                ]
+            },
+            "en": {
+                "question": "Which flowers are considered a classic symbol of love and are often chosen for wedding bouquets?",
+                "options": [
+                    {"id": "opt_1", "text": "Red roses"},
+                    {"id": "opt_2", "text": "Chrysanthemums"},
+                    {"id": "opt_3", "text": "Yellow tulips"},
+                    {"id": "opt_4", "text": "Lilies"}
+                ]
+            }
+        }
+    },
+    {
+        "id": "q_094",
+        "correct_option_id": "opt_2",
+        "translations": {
+            "pl": {
+                "question": "Które z tych państw słynie z ceremonii picia sake z trzech różnych czarek podczas ślubu (San-san-kudo)?",
+                "options": [
+                    {"id": "opt_1", "text": "Chiny"},
+                    {"id": "opt_2", "text": "Japonia"},
+                    {"id": "opt_3", "text": "Korea Południowa"},
+                    {"id": "opt_4", "text": "Tajlandia"}
+                ]
+            },
+            "en": {
+                "question": "Which of these countries is famous for the ceremony of drinking sake from three different cups during a wedding (San-san-kudo)?",
+                "options": [
+                    {"id": "opt_1", "text": "China"},
+                    {"id": "opt_2", "text": "Japan"},
+                    {"id": "opt_3", "text": "South Korea"},
+                    {"id": "opt_4", "text": "Thailand"}
+                ]
+            }
+        }
+    },
+    {
+        "id": "q_095",
+        "correct_option_id": "opt_4",
+        "translations": {
+            "pl": {
+                "question": "Czego unikają panny młode, nie pokazując się panu młodemu w sukni przed ceremonią?",
+                "options": [
+                    {"id": "opt_1", "text": "Zniszczenia sukni"},
+                    {"id": "opt_2", "text": "Utraty urody"},
+                    {"id": "opt_3", "text": "Łez i wzruszenia"},
+                    {"id": "opt_4", "text": "Pechowej wróżby dla małżeństwa"}
+                ]
+            },
+            "en": {
+                "question": "What are brides avoiding by not showing themselves to the groom in the dress before the ceremony?",
+                "options": [
+                    {"id": "opt_1", "text": "Ruining the dress"},
+                    {"id": "opt_2", "text": "Loss of beauty"},
+                    {"id": "opt_3", "text": "Tears and emotion"},
+                    {"id": "opt_4", "text": "Bad luck for the marriage"}
+                ]
+            }
+        }
+    },
+    {
+        "id": "q_096",
+        "correct_option_id": "opt_1",
+        "translations": {
+            "pl": {
+                "question": "Kto w polskiej tradycji wita młodych chlebem i solą po ślubie?",
+                "options": [
+                    {"id": "opt_1", "text": "Rodzice nowożeńców"},
+                    {"id": "opt_2", "text": "Świadkowie"},
+                    {"id": "opt_3", "text": "Ksiądz"},
+                    {"id": "opt_4", "text": "Wodzirej"}
+                ]
+            },
+            "en": {
+                "question": "Who in Polish tradition welcomes the newlyweds with bread and salt after the wedding?",
+                "options": [
+                    {"id": "opt_1", "text": "Parents of the newlyweds"},
+                    {"id": "opt_2", "text": "Witnesses / Best man and maid of honor"},
+                    {"id": "opt_3", "text": "The priest"},
+                    {"id": "opt_4", "text": "The Master of Ceremonies"}
+                ]
+            }
+        }
     }
-    
-
-
-
-
-
-	
 ]

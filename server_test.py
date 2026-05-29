@@ -120,12 +120,15 @@ def pourDrinks(stupidPlayersIds):
 
         # if GPIO.input(sensorPins[playerID - 1]) == GPIO.HIGH:
         #     print("Gracz", playerID, "nie dał kieliszka")  # [debug]
-        #     emit('didnt_drink', {'id': playerID}, broadcast=True)
-        #
+        #     player_name = next((p['username'] for p in players if p['id'] == playerID), 'Unknown')
+        #     emit('didnt_drink', {'id': playerID, 'username': player_name}, broadcast=True)
+
         #     """Loop holding the pump untill the shot_glass is found in slot"""
         #     while GPIO.input(sensorPins[playerID - 1]) == GPIO.HIGH:
         #         time.sleep(2)
-
+        #         emit('glass_provided', {'id': playerID}, broadcast=True)
+        emit('didnt_drink', {'id': playerID, 'username': player['username']}, broadcast=True)
+        time.sleep(100)
         slotAngle = 22.5 + 45 * (playerID - 1)
         servoGoToAngle(slotAngle)
         time.sleep(1)

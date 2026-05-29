@@ -22,5 +22,7 @@
     "waitingForOthers": "Waiting for other players...",
     "gameMode": "Game mode",
     "looserMode": "Looser drinks",
-    "winnerMode": "Winner drinks"
+    "winnerMode": "Winner drinks",
+    "noGlass": "didn't provide a glass!",
+    "waitingForGlass": "Wait for the player to provide a glass"
 }

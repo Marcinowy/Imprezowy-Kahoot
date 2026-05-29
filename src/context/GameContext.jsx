@@ -24,7 +24,7 @@ export const GameProvider = ({ children }) => {
   const [playerWithoutGlass, setPlayerWithoutGlass] = useState({username: '', id: null});
 
   useEffect(() => {
-    const socketIo = io('192.168.1.9:5500', {
+    const socketIo = io('192.168.1.30:5500', {
       transports: ['websocket', 'polling']
     });
 

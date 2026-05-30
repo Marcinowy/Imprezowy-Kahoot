@@ -159,6 +159,7 @@ def handle_connect():
     emit('message', {'data': 'Connected'})
 
 
+
 """ handling a request to join a lobby, sends id and updates players list if succeded, sends full_lobby message if failed"""
 @socketio.on('join')
 def handle_join(data):

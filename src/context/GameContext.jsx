@@ -24,7 +24,7 @@ export const GameProvider = ({ children }) => {
   const [playerWithoutGlass, setPlayerWithoutGlass] = useState({username: '', id: null});
 
   useEffect(() => {
-    const socketIo = io('192.168.1.30:5500', {
+    const socketIo = io('192.168.1.30:80', {
       transports: ['websocket', 'polling']
     });
 
@@ -35,6 +35,18 @@ export const GameProvider = ({ children }) => {
     socketIo.on('disconnect', () => {
       setJoined(false);
       setCurrentScreen('join');
+      setPlayers([]);
+      setCurrentQuestion(null);
+      setGameStarted(false);
+      setAnswered(false);
+      setQuestionNumber(0);
+      setGameOver(false);
+      setNumRounds(5);
+      setCorrectAnswer(null);
+      setPouring(false);
+      setWrongPlayerIds([]);
+      setGameMode('looserMode');
+      setPlayerWithoutGlass({username: '', id: null});
       console.log('[DEBUG] Disconnected from server');  // DEBUG
     });
 

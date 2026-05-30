@@ -232,6 +232,13 @@ def handle_disconnect():
 
     if disconnected_player:
         players = []
+        players_answered = []
+        players_answered_wrong = []
+        question_limit = 5
+        game_started = False
+        current_question_index = 0
+        game_mode = 'looserMode' 
+
         emit('update_players', {'players': players}, broadcast=True)
         print(f"Player {disconnected_player['username']} disconnected.")
         emit('disconnect', broadcast=True)
@@ -369,4 +376,4 @@ signal.signal(signal.SIGINT, handler)
 
 if __name__ == '__main__':
    servoGoToAngle(0)
-   socketio.run(app, port=5500, host="0.0.0.0", debug=False, use_reloader=False, allow_unsafe_werkzeug=True)
+   socketio.run(app, port=80, host="0.0.0.0", debug=False, use_reloader=False, allow_unsafe_werkzeug=True)

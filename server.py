@@ -38,7 +38,7 @@ GPIO.output(servoPowerPIn, GPIO.HIGH)
 
 
 """ number of pouring doses required to fill a glass"""
-repetitions = 36
+repetitions = 50
 """ duration of single pouring dose"""
 pour_dose = .25
 

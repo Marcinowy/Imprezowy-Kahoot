@@ -227,6 +227,13 @@ def handle_start_game(data=None):
 @socketio.on('disconnect')
 def handle_disconnect():
     global players
+    global game_started
+    global players_answered
+    global players_answered_wrong
+    global current_question_index
+    global game_mode
+    global question_limit
+    
     disconnected_sid = request.sid
     disconnected_player = next((player for player in players if player['sid'] == disconnected_sid), None)
 
@@ -259,7 +266,6 @@ def handle_disconnect():
         #     handle_next_question()
 
     if len(players) == 0:
-        global game_started
         game_started = False
 
 

@@ -100,7 +100,7 @@ export const GameProvider = ({ children }) => {
     });
 
     socketIo.on('glass_provided', (data) => {
-      setPlayerWithoutGlass(null);
+      setPlayerWithoutGlass({username: '', id: null});
     });
 
     socketIo.on('drinks_poured', () => {

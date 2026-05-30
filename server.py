@@ -382,4 +382,4 @@ signal.signal(signal.SIGINT, handler)
 
 if __name__ == '__main__':
    servoGoToAngle(0)
-   socketio.run(app, port=80, host="0.0.0.0", debug=False, use_reloader=False, allow_unsafe_werkzeug=True)
+   socketio.run(app, port=5500, host="0.0.0.0", debug=False, use_reloader=False, allow_unsafe_werkzeug=True)

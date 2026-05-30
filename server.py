@@ -85,7 +85,7 @@ def servoGoToAngle(target_angle, step=1, delay=0.015):
     direction = 1 if target_angle > current_angle else -1
     
     # Płynny ruch krok po kroku
-    for angle in range(current_angle, target_angle + direction, direction * step):
+    for angle in range(int(current_angle), int(target_angle + direction), int(direction * step)):
         pulse = int(d0 + (d180 - d0) * (angle / 180))
         servo.set_servo_pulsewidth(servoSignalPin, pulse)
         time.sleep(delay) # To opóźnienie kontroluje prędkość ruchu!

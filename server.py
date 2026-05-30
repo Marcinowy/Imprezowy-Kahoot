@@ -84,6 +84,13 @@ def servoGoToAngle(angle):
     servo.set_PWM_frequency(servoSignalPin, 0)
     time.sleep(0.2)
 
+    servo.set_servo_pulsewidth(servoSignalPin, pulse)
+    print("Servo: setting angle:", angle, pulse)  # [debug]
+    time.sleep(1)
+    servo.set_PWM_dutycycle(servoSignalPin, 0)
+    servo.set_PWM_frequency(servoSignalPin, 0)
+    time.sleep(0.2)
+
     GPIO.output(servoPowerPIn, GPIO.HIGH)
     print("servo off")  # [debug]
     time.sleep(.1)

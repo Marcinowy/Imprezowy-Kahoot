@@ -32,6 +32,12 @@ export const GameProvider = ({ children }) => {
       console.log('[DEBUG] Connected to server');  // DEBUG
     });
 
+    socketIo.on('disconnect', () => {
+      setJoined(false);
+      setCurrentScreen('join');
+      console.log('[DEBUG] Disconnected from server');  // DEBUG
+    });
+
     socketIo.on('message', (data) => {
       console.log(data.data);
     });

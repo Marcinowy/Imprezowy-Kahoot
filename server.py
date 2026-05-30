@@ -79,14 +79,7 @@ def servoGoToAngle(angle):
 
     servo.set_servo_pulsewidth(servoSignalPin, pulse)
     print("Servo: setting angle:", angle, pulse)  # [debug]
-    time.sleep(1)
-    servo.set_PWM_dutycycle(servoSignalPin, 0)
-    servo.set_PWM_frequency(servoSignalPin, 0)
-    time.sleep(0.2)
-
-    servo.set_servo_pulsewidth(servoSignalPin, pulse)
-    print("Servo: setting angle:", angle, pulse)  # [debug]
-    time.sleep(1)
+    time.sleep(3)  # Increased from 1 to 3 seconds for slower movement
     servo.set_PWM_dutycycle(servoSignalPin, 0)
     servo.set_PWM_frequency(servoSignalPin, 0)
     time.sleep(0.2)
@@ -238,24 +231,25 @@ def handle_disconnect():
     disconnected_player = next((player for player in players if player['sid'] == disconnected_sid), None)
 
     if disconnected_player:
-        players.remove(disconnected_player)
+        players = []
         emit('update_players', {'players': players}, broadcast=True)
         print(f"Player {disconnected_player['username']} disconnected.")
+        emit('disconnect', broadcast=True)
 
-        if disconnected_player['id'] in players_answered:
-            players_answered.remove(disconnected_player['id'])
+        # if disconnected_player['id'] in players_answered:
+        #     players_answered.remove(disconnected_player['id'])
 
-            if disconnected_player['id'] in players_answered_wrong:
-                players_answered_wrong.remove(disconnected_player['id'])  # [Jakub] usunąć z listy pijących
+        #     if disconnected_player['id'] in players_answered_wrong:
+        #         players_answered_wrong.remove(disconnected_player['id'])  # [Jakub] usunąć z listy pijących
 
-            print(players_answered)
-            print(players)
+        #     print(players_answered)
+        #     print(players)
 
-        if len(players_answered) == len(players):
-            emit('all_players_answered', broadcast=True)
-            pourDrinks(players_answered_wrong)  # [Jakub] dodać włączenie nalewania w tym miejscu
+        # if len(players_answered) == len(players):
+        #     emit('all_players_answered', broadcast=True)
+        #     pourDrinks(players_answered_wrong)  # [Jakub] dodać włączenie nalewania w tym miejscu
 
-            handle_next_question()
+        #     handle_next_question()
 
     if len(players) == 0:
         global game_started

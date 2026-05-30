@@ -128,7 +128,8 @@ def pourDrinks(stupidPlayersIds):
                 time.sleep(2)
                 emit('glass_provided', {'id': playerID}, broadcast=True)
 
-        slotAngle = 22.5 + 45 * (playerID - 1)
+        slotAngle = 22.5 + 15 * (playerID - 1)
+        # 22.5, 67.5, 112.5, 157.5 - angles for 4 players, can be easily changed by modifying the formula above
         servoGoToAngle(slotAngle)
         time.sleep(1)
 

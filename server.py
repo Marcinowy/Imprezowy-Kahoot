@@ -163,7 +163,7 @@ def pourDrinks(stupidPlayersIds):
             """Loop holding the pump untill the shot_glass is found in slot"""
             while GPIO.input(sensorPins[playerID - 1]) == GPIO.HIGH:
                 time.sleep(2)
-            time.sleep(2)
+            time.sleep(1)
             emit('glass_provided', {'id': playerID}, broadcast=True)
 
         slotAngle = 22.5 + 25 * (playerID - 1)

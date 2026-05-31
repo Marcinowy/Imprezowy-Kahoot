@@ -2,7 +2,7 @@ import { useGame } from '../context/GameContext';
 import { useTranslation } from "react-i18next";
 
 export const ScoreboardScreen = () => {
-  const { players, pouring, nextQuestion, correctAnswer, wrongPlayerIds, gameMode } = useGame();
+  const { players, pouring, nextQuestion, correctAnswer, wrongPlayerIds, gameMode, playerId } = useGame();
   const { t } = useTranslation();
 
   const sortedPlayers = [...players].sort((a, b) => b.score - a.score);
@@ -47,22 +47,26 @@ export const ScoreboardScreen = () => {
             </div>
 
             {/* New Game Button */}
-            <button
-              onClick={handleNextQuestion}
-              disabled={pouring}
-              className="text-xl font-bold py-4 px-14 m-4 mx-auto block shadow-md border-none rounded-4xl text-white bg-lime-900 cursor-pointer ease-in-out duration-300 disabled:cursor-not-allowed disabled:bg-gray-400 disabled:opacity-50 font-corben"
-            >
-              {t("nextQuestion")}
-            </button>
-            {pouring && (
-              <div className="text-center mt-8">
-                <p className="text-base text-red-500"> {t("pouringWarning")} </p>
-              </div>
-            )}
-            {!pouring && (
-              <div className="text-center">
-                <p className="text-base text-lime-900"> {t("nextQuestionExplanation")} </p>
-              </div>
+            {playerId === 1 && (
+            <div>
+              <button
+                onClick={handleNextQuestion}
+                disabled={pouring}
+                className="text-xl font-bold py-4 px-14 m-4 mx-auto block shadow-md border-none rounded-4xl text-white bg-lime-900 cursor-pointer ease-in-out duration-300 disabled:cursor-not-allowed disabled:bg-gray-400 disabled:opacity-50 font-corben"
+              >
+                {t("nextQuestion")}
+              </button>
+              {pouring && (
+                <div className="text-center mt-8">
+                  <p className="text-base text-red-500"> {t("pouringWarning")} </p>
+                </div>
+              )}
+              {!pouring && (
+                <div className="text-center">
+                  <p className="text-base text-lime-900"> {t("nextQuestionExplanation")} </p>
+                </div>
+              )}
+            </div>
             )}
           </div>
         </div>

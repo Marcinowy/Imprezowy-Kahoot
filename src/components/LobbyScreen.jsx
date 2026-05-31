@@ -3,7 +3,7 @@ import { useGame } from '../context/GameContext';
 import { useTranslation } from "react-i18next";
 
 export const LobbyScreen = () => {
-  const { players, numRounds, startGame } = useGame();
+  const { players, numRounds, startGame, playerId } = useGame();
   const [localRounds, setLocalRounds] = useState(numRounds);
   const [gameMode, setGameMode] = useState('looserMode');
   const { t } = useTranslation();
@@ -43,43 +43,47 @@ export const LobbyScreen = () => {
               </div>
             ))}
           </div>
-          <h2 className="text-2xl font-bold text-green-950 mt-4 mb-2">{t("roundsNumber")}:</h2>
-          <input
-            type="number"
-            id="numRounds"
-            max="15"
-            min="1"
-            value={localRounds}
-            onChange={(e) => setLocalRounds(Math.max(1, Math.min(15, parseInt(e.target.value) || 1)))}
-            className="w-full rounded-2xl border-2 border-zinc-300 p-3 sm:p-4 md:p-5 transition-all outline-none focus:border-lime-700 focus:shadow-lg focus:shadow-lime-700/20 text-green-950"
-          />
-          
-          <h2 className="text-2xl font-bold text-green-950 mt-4 mb-2">{t("gameMode")}:</h2>
-          <div className="flex">
-            <button
-              onClick={() => setGameMode('looserMode')}
-              className={`flex-1 p-2 sm:p-3 rounded-l-xl border-2 font-bold transition-all ${gameMode === 'looserMode' ? 'bg-lime-700 text-white border-lime-700' : 'bg-white text-lime-900 border-zinc-300'}`}
-            >
-              {t("looserMode")}
-            </button>
-            <button
-              onClick={() => setGameMode('winnerMode')}
-              className={`flex-1 p-3 rounded-r-xl border-2 font-bold transition-all ${gameMode === 'winnerMode' ? 'bg-lime-700 text-white border-lime-700' : 'bg-white text-lime-900 border-zinc-300'}`}
-            >
-              {t("winnerMode")}
-            </button>
-          </div>
+          {playerId === 1 && (
+          <div>
+            <h2 className="text-2xl font-bold text-green-950 mt-4 mb-2">{t("roundsNumber")}:</h2>
+            <input
+              type="number"
+              id="numRounds"
+              max="15"
+              min="1"
+              value={localRounds}
+              onChange={(e) => setLocalRounds(Math.max(1, Math.min(15, parseInt(e.target.value) || 1)))}
+              className="w-full rounded-2xl border-2 border-zinc-300 p-3 sm:p-4 md:p-5 transition-all outline-none focus:border-lime-700 focus:shadow-lg focus:shadow-lime-700/20 text-green-950"
+            />
+            
+            <h2 className="text-2xl font-bold text-green-950 mt-4 mb-2">{t("gameMode")}:</h2>
+            <div className="flex">
+              <button
+                onClick={() => setGameMode('looserMode')}
+                className={`flex-1 p-2 sm:p-3 rounded-l-xl border-2 font-bold transition-all ${gameMode === 'looserMode' ? 'bg-lime-700 text-white border-lime-700' : 'bg-white text-lime-900 border-zinc-300'}`}
+              >
+                {t("looserMode")}
+              </button>
+              <button
+                onClick={() => setGameMode('winnerMode')}
+                className={`flex-1 p-3 rounded-r-xl border-2 font-bold transition-all ${gameMode === 'winnerMode' ? 'bg-lime-700 text-white border-lime-700' : 'bg-white text-lime-900 border-zinc-300'}`}
+              >
+                {t("winnerMode")}
+              </button>
+            </div>
 
-          <button
-            onClick={handleStart}
-            className="text-xl font-bold py-4 px-14 m-4 mx-auto block shadow-md border-none rounded-4xl text-white bg-lime-900 cursor-pointer ease-in-out duration-300 font-corben"
-            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-          >
-            {t("startGame")}
-          </button>
-          
-          <p className="text-base text-red-500 text-center m-4">{t("warningBeforeStart")}</p>
+            <button
+              onClick={handleStart}
+              className="text-xl font-bold py-4 px-14 m-4 mx-auto block shadow-md border-none rounded-4xl text-white bg-lime-900 cursor-pointer ease-in-out duration-300 font-corben"
+              onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+              onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+            >
+              {t("startGame")}
+            </button>
+            
+            <p className="text-base text-red-500 text-center m-4">{t("warningBeforeStart")}</p>
+          </div>
+          )}
         </div>
       </div>
     </div>

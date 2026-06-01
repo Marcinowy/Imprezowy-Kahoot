@@ -15,7 +15,7 @@ GPIO.setmode(GPIO.BCM)
 
 """Assigning names to specific pins"""
 pumpPowerPIn = 23
-servoPowerPIn = 24
+servoPowerPIn = 22
 servoSignalPin = 12
 sensorPins = [25, 8, 7, 1]
 

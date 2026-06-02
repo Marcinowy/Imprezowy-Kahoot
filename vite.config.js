@@ -7,7 +7,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/socket.io': {
-        target: '192.168.1.30:5500',
+        target: '192.168.1.30',
         ws: true
       }
     }

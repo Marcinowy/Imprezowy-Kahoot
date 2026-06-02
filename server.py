@@ -107,7 +107,6 @@ game_mode = 'looserMode'  # default game mode, can be 'looserMode' or 'winnerMod
 #     time.sleep(.1)
 
 def servoGoToAngle(angle):
-    angle = (180 + angle - 10) % 180
     d0, d180 = 500, 2500
     pulse = int(d0 + (d180 - d0) * (angle / 180))
 

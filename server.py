@@ -71,59 +71,59 @@ game_mode = 'looserMode'  # default game mode, can be 'looserMode' or 'winnerMod
 """function to set servo at a given angle"""
 
 # Zmienna przechowująca obecny kąt (na starcie załóżmy, że jest to 0)
-current_angle = 0 
+# current_angle = 0 
 
-def servoGoToAngle(target_angle, step=1, delay=0.015):
-    global current_angle
-    d0, d180 = 500, 2500
-    
-    GPIO.output(servoPowerPIn, GPIO.LOW)
-    print("servo on")  # [debug]
-    time.sleep(0.2)
-
-    # Ustal kierunek obrotu (1 dla rosnących kątów, -1 dla malejących)
-    direction = 1 if target_angle > current_angle else -1
-    
-    # Płynny ruch krok po kroku
-    for angle in range(int(current_angle), int(target_angle + direction), int(direction * step)):
-        pulse = int(d0 + (d180 - d0) * (angle / 180))
-        servo.set_servo_pulsewidth(servoSignalPin, pulse)
-        time.sleep(delay) # To opóźnienie kontroluje prędkość ruchu!
-    
-    # Aktualizacja obecnego kąta
-    current_angle = target_angle
-    print("Servo: reached angle:", target_angle)  # [debug]
-    
-    # Dajmy mu chwilę na ostateczne ustabilizowanie się (zamiast 3s wystarczy ułamek sekundy)
-    time.sleep(0.5)  
-    
-    # Wyłączenie sygnału i zasilania
-    servo.set_servo_pulsewidth(servoSignalPin, 0)
-    # servo.set_PWM_dutycycle(servoSignalPin, 0) # (zazwyczaj niepotrzebne przy set_servo_pulsewidth)
-    time.sleep(0.2)
-
-    GPIO.output(servoPowerPIn, GPIO.HIGH)
-    print("servo off")  # [debug]
-    time.sleep(.1)
-
-# def servoGoToAngle(angle):
+# def servoGoToAngle(target_angle, step=1, delay=0.015):
+#     global current_angle
 #     d0, d180 = 500, 2500
-#     pulse = int(d0 + (d180 - d0) * (angle / 180))
-
+    
 #     GPIO.output(servoPowerPIn, GPIO.LOW)
 #     print("servo on")  # [debug]
-#     time.sleep(.2)
+#     time.sleep(0.2)
 
-#     servo.set_servo_pulsewidth(servoSignalPin, pulse)
-#     print("Servo: setting angle:", angle, pulse)  # [debug]
-#     time.sleep(3)  # Increased from 1 to 3 seconds for slower movement
-#     servo.set_PWM_dutycycle(servoSignalPin, 0)
-#     servo.set_PWM_frequency(servoSignalPin, 0)
+#     # Ustal kierunek obrotu (1 dla rosnących kątów, -1 dla malejących)
+#     direction = 1 if target_angle > current_angle else -1
+    
+#     # Płynny ruch krok po kroku
+#     for angle in range(int(current_angle), int(target_angle + direction), int(direction * step)):
+#         pulse = int(d0 + (d180 - d0) * (angle / 180))
+#         servo.set_servo_pulsewidth(servoSignalPin, pulse)
+#         time.sleep(delay) # To opóźnienie kontroluje prędkość ruchu!
+    
+#     # Aktualizacja obecnego kąta
+#     current_angle = target_angle
+#     print("Servo: reached angle:", target_angle)  # [debug]
+    
+#     # Dajmy mu chwilę na ostateczne ustabilizowanie się (zamiast 3s wystarczy ułamek sekundy)
+#     time.sleep(0.5)  
+    
+#     # Wyłączenie sygnału i zasilania
+#     servo.set_servo_pulsewidth(servoSignalPin, 0)
+#     # servo.set_PWM_dutycycle(servoSignalPin, 0) # (zazwyczaj niepotrzebne przy set_servo_pulsewidth)
 #     time.sleep(0.2)
 
 #     GPIO.output(servoPowerPIn, GPIO.HIGH)
 #     print("servo off")  # [debug]
 #     time.sleep(.1)
+
+def servoGoToAngle(angle):
+    d0, d180 = 500, 2500
+    pulse = int(d0 + (d180 - d0) * (angle / 180))
+
+    GPIO.output(servoPowerPIn, GPIO.LOW)
+    print("servo on")  # [debug]
+    time.sleep(.2)
+
+    servo.set_servo_pulsewidth(servoSignalPin, pulse)
+    print("Servo: setting angle:", angle, pulse)  # [debug]
+    time.sleep(3)  # Increased from 1 to 3 seconds for slower movement
+    servo.set_PWM_dutycycle(servoSignalPin, 0)
+    servo.set_PWM_frequency(servoSignalPin, 0)
+    time.sleep(0.2)
+
+    GPIO.output(servoPowerPIn, GPIO.HIGH)
+    print("servo off")  # [debug]
+    time.sleep(.1)
 
 
 """ function to turn on a pump for a fixed time """
